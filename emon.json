@@ -15,7 +15,6 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 16,
   "links": [],
   "panels": [
     {
@@ -1021,7 +1020,7 @@
         {
           "expr": "clamp_min(emoncms_use, 0)",
           "format": "time_series",
-          "intervalFactor": 1,
+          "intervalFactor": 4,
           "legendFormat": "Use",
           "refId": "A"
         }
@@ -1112,7 +1111,7 @@
         {
           "expr": "clamp_min(emoncms_solar, 0)",
           "format": "time_series",
-          "intervalFactor": 5,
+          "intervalFactor": 4,
           "legendFormat": "Solar",
           "refId": "A"
         }
@@ -1203,7 +1202,7 @@
         {
           "expr": "emoncms_import",
           "format": "time_series",
-          "intervalFactor": 1,
+          "intervalFactor": 4,
           "legendFormat": "Import",
           "refId": "A"
         }
@@ -1294,7 +1293,7 @@
         {
           "expr": "clamp_min(emoncms_solar - ignoring(entity, friendly_name) emoncms_use, 0)",
           "format": "time_series",
-          "intervalFactor": 1,
+          "intervalFactor": 4,
           "legendFormat": "Export",
           "refId": "A"
         }
