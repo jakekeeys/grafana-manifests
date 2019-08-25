@@ -415,7 +415,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "((emoncms_solar_kwh - ignoring (entity, friendly_name) emoncms_use_kwh) * -1 ) / ignoring (entity, friendly_name) emoncms_solar_kwh",
+          "expr": "((emoncms_use_kwh - ignoring(entity, friendly_name) emoncms_import_kwh - ignoring(entity, friendly_name) emoncms_solar_kwh) * - 1) / ignoring (entity, friendly_name) emoncms_solar_kwh",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -556,22 +556,30 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
-          "alias": "Use",
-          "color": "#5794F2"
+          "alias": "Grid",
+          "color": "#B877D9"
         },
         {
           "alias": "Solar",
           "color": "#FF9830"
         },
         {
-          "alias": "Grid",
-          "color": "#B877D9"
+          "alias": "Use",
+          "color": "#5794F2"
         }
       ],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
       "targets": [
+        {
+          "expr": "emoncms_use",
+          "format": "time_series",
+          "hide": false,
+          "intervalFactor": 10,
+          "legendFormat": "Use",
+          "refId": "B"
+        },
         {
           "expr": "emoncms_import + ignoring(entity, friendly_name) (clamp_min(emoncms_solar - ignoring(entity, friendly_name) emoncms_use, 0) * - 1)",
           "format": "time_series",
@@ -586,14 +594,6 @@
           "hide": false,
           "intervalFactor": 10,
           "legendFormat": "Solar",
-          "refId": "B"
-        },
-        {
-          "expr": "emoncms_use",
-          "format": "time_series",
-          "hide": false,
-          "intervalFactor": 10,
-          "legendFormat": "Use",
           "refId": "C"
         }
       ],
@@ -956,7 +956,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "(emoncms_solar_kwh - ignoring(entity, friendly_name) emoncms_use_kwh) * -1",
+          "expr": "(emoncms_use_kwh - ignoring(entity, friendly_name) emoncms_import_kwh - ignoring(entity, friendly_name) emoncms_solar_kwh) * - 1",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
