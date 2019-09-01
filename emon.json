@@ -15,8 +15,23 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
+  "id": 79,
+  "iteration": 1567334663657,
   "links": [],
   "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 27,
+      "panels": [],
+      "title": "Home",
+      "type": "row"
+    },
     {
       "cacheTimeout": null,
       "colorBackground": true,
@@ -38,7 +53,7 @@
         "h": 2,
         "w": 8,
         "x": 0,
-        "y": 0
+        "y": 1
       },
       "id": 4,
       "interval": null,
@@ -78,7 +93,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "emoncms_use",
+          "expr": "sensor_unit_w{entity=\"sensor.emoncms_use\"}",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -122,7 +137,7 @@
         "h": 2,
         "w": 8,
         "x": 8,
-        "y": 0
+        "y": 1
       },
       "id": 5,
       "interval": null,
@@ -162,7 +177,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "emoncms_solar",
+          "expr": "sensor_unit_w{entity=\"sensor.emoncms_solar\"}",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -206,7 +221,7 @@
         "h": 2,
         "w": 8,
         "x": 16,
-        "y": 0
+        "y": 1
       },
       "id": 23,
       "interval": null,
@@ -246,7 +261,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "emoncms_import + ignoring(entity, friendly_name) (clamp_min(emoncms_solar - ignoring(entity, friendly_name) emoncms_use, 0) * - 1)",
+          "expr": "sensor_unit_w{entity=\"sensor.emoncms_import\"} + ignoring(entity, friendly_name) (clamp_min(sensor_unit_w{entity=\"sensor.emoncms_solar\"} - ignoring(entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_use\"}, 0) * - 1)",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -290,7 +305,7 @@
         "h": 2,
         "w": 8,
         "x": 0,
-        "y": 2
+        "y": 3
       },
       "id": 14,
       "interval": null,
@@ -331,7 +346,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "(emoncms_use_kwh - ignoring (entity, friendly_name) emoncms_import_kwh) / ignoring (entity, friendly_name) emoncms_use_kwh",
+          "expr": "(sensor_unit_w{entity=\"sensor.emoncms_use_kwh\"} - ignoring (entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_import_kwh\"}) / ignoring (entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_use_kwh\"}",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -374,7 +389,7 @@
         "h": 2,
         "w": 8,
         "x": 8,
-        "y": 2
+        "y": 3
       },
       "id": 22,
       "interval": null,
@@ -415,7 +430,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "((emoncms_use_kwh - ignoring(entity, friendly_name) emoncms_import_kwh - ignoring(entity, friendly_name) emoncms_solar_kwh) * - 1) / ignoring (entity, friendly_name) emoncms_solar_kwh",
+          "expr": "((sensor_unit_w{entity=\"sensor.emoncms_use_kwh\"} - ignoring(entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_import_kwh\"} - ignoring(entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_solar_kwh\"}) * - 1) / ignoring (entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_solar_kwh\"}",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -458,7 +473,7 @@
         "h": 2,
         "w": 8,
         "x": 16,
-        "y": 2
+        "y": 3
       },
       "id": 21,
       "interval": null,
@@ -499,7 +514,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "emoncms_import_kwh / ignoring(entity, friendly_name) emoncms_use_kwh",
+          "expr": "sensor_unit_w{entity=\"sensor.emoncms_import_kwh\"} / ignoring(entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_use_kwh\"}",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -531,7 +546,7 @@
         "h": 12,
         "w": 24,
         "x": 0,
-        "y": 4
+        "y": 5
       },
       "id": 2,
       "legend": {
@@ -573,7 +588,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "emoncms_use",
+          "expr": "sensor_unit_w{entity=\"sensor.emoncms_use\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 10,
@@ -581,7 +596,7 @@
           "refId": "B"
         },
         {
-          "expr": "emoncms_import + ignoring(entity, friendly_name) (clamp_min(emoncms_solar - ignoring(entity, friendly_name) emoncms_use, 0) * - 1)",
+          "expr": "sensor_unit_w{entity=\"sensor.emoncms_import\"} + ignoring(entity, friendly_name) (clamp_min(sensor_unit_w{entity=\"sensor.emoncms_solar\"} - ignoring(entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_use\"}, 0) * - 1)",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 10,
@@ -589,7 +604,7 @@
           "refId": "A"
         },
         {
-          "expr": "emoncms_solar",
+          "expr": "sensor_unit_w{entity=\"sensor.emoncms_solar\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 10,
@@ -660,7 +675,7 @@
         "h": 2,
         "w": 6,
         "x": 0,
-        "y": 16
+        "y": 17
       },
       "id": 13,
       "interval": null,
@@ -701,7 +716,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "emoncms_use_kwh",
+          "expr": "sensor_unit_w{entity=\"sensor.emoncms_use_kwh\"}",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -745,7 +760,7 @@
         "h": 2,
         "w": 6,
         "x": 6,
-        "y": 16
+        "y": 17
       },
       "id": 17,
       "interval": null,
@@ -786,7 +801,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "emoncms_solar_kwh",
+          "expr": "sensor_unit_w{entity=\"sensor.emoncms_solar_kwh\"}",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -830,7 +845,7 @@
         "h": 2,
         "w": 6,
         "x": 12,
-        "y": 16
+        "y": 17
       },
       "id": 16,
       "interval": null,
@@ -871,7 +886,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "emoncms_import_kwh",
+          "expr": "sensor_unit_w{entity=\"sensor.emoncms_import_kwh\"}",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -915,7 +930,7 @@
         "h": 2,
         "w": 6,
         "x": 18,
-        "y": 16
+        "y": 17
       },
       "id": 19,
       "interval": null,
@@ -956,7 +971,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "(emoncms_use_kwh - ignoring(entity, friendly_name) emoncms_import_kwh - ignoring(entity, friendly_name) emoncms_solar_kwh) * - 1",
+          "expr": "(sensor_unit_w{entity=\"sensor.emoncms_use_kwh\"} - ignoring(entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_import_kwh\"} - ignoring(entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_solar_kwh\"}) * - 1",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -988,7 +1003,7 @@
         "h": 8,
         "w": 6,
         "x": 0,
-        "y": 18
+        "y": 19
       },
       "id": 11,
       "legend": {
@@ -1021,7 +1036,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "clamp_min(emoncms_use, 0)",
+          "expr": "clamp_min(sensor_unit_w{entity=\"sensor.emoncms_use\"}, 0)",
           "format": "time_series",
           "intervalFactor": 4,
           "legendFormat": "Use",
@@ -1079,7 +1094,7 @@
         "h": 8,
         "w": 6,
         "x": 6,
-        "y": 18
+        "y": 19
       },
       "id": 10,
       "legend": {
@@ -1112,7 +1127,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "clamp_min(emoncms_solar, 0)",
+          "expr": "clamp_min(sensor_unit_w{entity=\"sensor.emoncms_solar\"}, 0)",
           "format": "time_series",
           "intervalFactor": 4,
           "legendFormat": "Solar",
@@ -1170,7 +1185,7 @@
         "h": 8,
         "w": 6,
         "x": 12,
-        "y": 18
+        "y": 19
       },
       "id": 8,
       "legend": {
@@ -1203,7 +1218,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "emoncms_import",
+          "expr": "sensor_unit_w{entity=\"sensor.emoncms_import\"}",
           "format": "time_series",
           "intervalFactor": 4,
           "legendFormat": "Import",
@@ -1261,7 +1276,7 @@
         "h": 8,
         "w": 6,
         "x": 18,
-        "y": 18
+        "y": 19
       },
       "id": 9,
       "legend": {
@@ -1294,7 +1309,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "clamp_min(emoncms_solar - ignoring(entity, friendly_name) emoncms_use, 0)",
+          "expr": "clamp_min(sensor_unit_w{entity=\"sensor.emoncms_solar\"} - ignoring(entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_use\"}, 0)",
           "format": "time_series",
           "intervalFactor": 4,
           "legendFormat": "Export",
@@ -1363,7 +1378,7 @@
         "h": 2,
         "w": 6,
         "x": 0,
-        "y": 26
+        "y": 27
       },
       "id": 24,
       "interval": null,
@@ -1403,7 +1418,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "emoncms_use",
+          "expr": "sensor_unit_w{entity=\"sensor.emoncms_use\"}",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -1447,7 +1462,7 @@
         "h": 2,
         "w": 6,
         "x": 6,
-        "y": 26
+        "y": 27
       },
       "id": 25,
       "interval": null,
@@ -1487,7 +1502,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "emoncms_solar",
+          "expr": "sensor_unit_w{entity=\"sensor.emoncms_solar\"}",
           "format": "time_series",
           "instant": false,
           "intervalFactor": 1,
@@ -1531,7 +1546,7 @@
         "h": 2,
         "w": 6,
         "x": 12,
-        "y": 26
+        "y": 27
       },
       "id": 6,
       "interval": null,
@@ -1571,7 +1586,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "emoncms_import",
+          "expr": "sensor_unit_w{entity=\"sensor.emoncms_import\"}",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -1614,7 +1629,7 @@
         "h": 2,
         "w": 6,
         "x": 18,
-        "y": 26
+        "y": 27
       },
       "id": 18,
       "interval": null,
@@ -1654,7 +1669,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "clamp_min(emoncms_solar - ignoring(entity, friendly_name) emoncms_use, 0)",
+          "expr": "clamp_min(sensor_unit_w{entity=\"sensor.emoncms_solar\"} - ignoring(entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_use\"}, 0)",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -1675,6 +1690,235 @@
         }
       ],
       "valueName": "current"
+    },
+    {
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 29
+      },
+      "id": 29,
+      "panels": [],
+      "repeat": "sonoffFriendlyName",
+      "scopedVars": {
+        "sonoffFriendlyName": {
+          "selected": false,
+          "text": "Servers ENERGY Power",
+          "value": "Servers ENERGY Power"
+        }
+      },
+      "title": "Socket",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 2,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 30
+      },
+      "id": 31,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "scopedVars": {
+        "sonoffFriendlyName": {
+          "selected": false,
+          "text": "Servers ENERGY Power",
+          "value": "Servers ENERGY Power"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sensor_unit_w{friendly_name=\"$sonoffFriendlyName\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{friendly_name}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "$sonoffFriendlyName",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "watt",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 38
+      },
+      "id": 32,
+      "panels": [],
+      "repeat": null,
+      "repeatIteration": 1567334663657,
+      "repeatPanelId": 29,
+      "scopedVars": {
+        "sonoffFriendlyName": {
+          "selected": false,
+          "text": "Office ENERGY Power",
+          "value": "Office ENERGY Power"
+        }
+      },
+      "title": "Socket",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 2,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 39
+      },
+      "id": 33,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeatIteration": 1567334663657,
+      "repeatPanelId": 31,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "sonoffFriendlyName": {
+          "selected": false,
+          "text": "Office ENERGY Power",
+          "value": "Office ENERGY Power"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sensor_unit_w{friendly_name=\"$sonoffFriendlyName\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{friendly_name}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "$sonoffFriendlyName",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "watt",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     }
   ],
   "refresh": "5s",
@@ -1682,7 +1926,35 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(sensor_unit_w{entity=~\"sensor.sonoff.*\"}, friendly_name)",
+        "hide": 0,
+        "includeAll": true,
+        "label": null,
+        "multi": true,
+        "name": "sonoffFriendlyName",
+        "options": [],
+        "query": "label_values(sensor_unit_w{entity=~\"sensor.sonoff.*\"}, friendly_name)",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
   },
   "time": {
     "from": "now-24h",
