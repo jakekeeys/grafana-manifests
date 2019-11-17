@@ -15,12 +15,13 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 4,
-  "iteration": 1551822786822,
+  "id": 50,
+  "iteration": 1573996956455,
   "links": [],
   "panels": [
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -75,6 +76,7 @@
       "maxPerRow": 12,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -158,6 +160,7 @@
       "maxPerRow": 12,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -207,6 +210,7 @@
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 24,
@@ -233,7 +237,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "connected",
-      "paceLength": 10,
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -302,6 +308,7 @@
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 24,
@@ -328,7 +335,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "connected",
-      "paceLength": 10,
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -397,6 +406,7 @@
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
@@ -423,7 +433,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "connected",
-      "paceLength": 10,
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -492,6 +504,7 @@
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
@@ -518,7 +531,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null as zero",
-      "paceLength": 10,
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -587,6 +602,7 @@
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 24,
@@ -613,7 +629,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null as zero",
-      "paceLength": 10,
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -676,6 +694,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -697,6 +716,7 @@
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
@@ -717,7 +737,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "connected",
-      "paceLength": 10,
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -731,7 +753,7 @@
           "expr": "go_memstats_heap_alloc_bytes{$labelselector=\"$labelvalue\",kubernetes_namespace=~\"$namespace\"}",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{kubernetes_namespace}} {{kubernetes_pod_name}}",
+          "legendFormat": "{{kubernetes_namespace}} {{kubernetes_name}}",
           "refId": "A",
           "step": 2
         }
@@ -785,6 +807,7 @@
       "dashes": false,
       "datasource": "Prometheus",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
@@ -805,7 +828,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "paceLength": 10,
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -819,7 +844,7 @@
           "expr": "go_goroutines{$labelselector=\"$labelvalue\",kubernetes_namespace=~\"$namespace\"}",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{kubernetes_namespace}} {{kubernetes_pod_name}}",
+          "legendFormat": "{{kubernetes_namespace}} {{kubernetes_name}}",
           "refId": "A",
           "step": 2
         }
@@ -874,6 +899,7 @@
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 24,
@@ -896,7 +922,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "connected",
-      "paceLength": 10,
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -910,7 +938,7 @@
           "expr": "go_gc_duration_seconds{$labelselector=\"$labelvalue\", quantile=\"1\"}",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{quantile}} {{kubernetes_namespace}} {{kubernetes_pod_name}}",
+          "legendFormat": "{{quantile}} {{kubernetes_namespace}} {{kubernetes_name}}",
           "refId": "A",
           "step": 2
         },
@@ -964,11 +992,13 @@
       }
     }
   ],
-  "refresh": "1m",
+  "refresh": "30s",
   "revision": null,
-  "schemaVersion": 18,
+  "schemaVersion": 20,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "thanos"
+  ],
   "templating": {
     "list": [
       {
@@ -1061,8 +1091,9 @@
       {
         "allValue": ".*",
         "current": {
-          "text": "All",
-          "value": "$__all"
+          "tags": [],
+          "text": "monitoring",
+          "value": "monitoring"
         },
         "datasource": "Prometheus",
         "definition": "",
@@ -1105,7 +1136,7 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-12h",
     "to": "now"
   },
   "timepicker": {
@@ -1134,7 +1165,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "thanos sidecar",
+  "title": "Thanos Sidecar",
   "uid": "IOteEKHik",
-  "version": 2
+  "version": 1
 }

@@ -15,280 +15,223 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 18,
-  "iteration": 1567795789566,
+  "id": 49,
+  "iteration": 1573996803402,
   "links": [],
   "panels": [
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
         "y": 0
       },
-      "id": 40,
+      "id": 22,
       "panels": [],
-      "title": "Overview",
+      "repeat": null,
+      "title": "Thanos Rule",
       "type": "row"
     },
     {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "format": "rps",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 3,
-        "w": 8,
+        "h": 7,
+        "w": 12,
         "x": 0,
         "y": 1
       },
-      "id": 17,
-      "interval": null,
-      "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "options": {},
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
+      "id": 29,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
       },
-      "tableColumn": "",
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(coredns_dns_request_count_total{}[$interval]))",
+          "expr": "sum(rate(grpc_server_handled_total{kubernetes_namespace=~\"$namespace\",$labelselector=\"$labelvalue\"}[$interval])) by (grpc_code, grpc_method, kubernetes_namespace)",
           "format": "time_series",
-          "instant": true,
           "intervalFactor": 1,
+          "legendFormat": "{{grpc_code}}   {{kubernetes_namespace}}/{{grpc_method}}",
           "refId": "A"
         }
       ],
-      "thresholds": "",
-      "title": "Average RPS [$interval]",
-      "transparent": true,
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "RPS [$interval]",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
         {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
         }
       ],
-      "valueName": "avg"
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "format": "dtdurations",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 3,
-        "w": 8,
-        "x": 8,
+        "h": 7,
+        "w": 12,
+        "x": 12,
         "y": 1
       },
-      "id": 19,
-      "interval": null,
-      "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "options": {},
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
+      "id": 31,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
       },
-      "tableColumn": "",
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(coredns_dns_request_duration_seconds_sum[$interval]))/sum(rate(coredns_dns_request_duration_seconds_count[$interval]))",
+          "expr": "histogram_quantile(0.9999, sum(rate(grpc_server_handling_seconds_bucket{kubernetes_namespace=~\"$namespace\",$labelselector=\"$labelvalue\"}[$interval])) by (grpc_method, le, kubernetes_namespace))",
           "format": "time_series",
-          "instant": true,
           "intervalFactor": 1,
+          "legendFormat": "99.99 {{kubernetes_namespace}}/{{grpc_method}}",
           "refId": "A"
         }
       ],
-      "thresholds": "",
-      "title": "Average Response Time [$interval]",
-      "transparent": true,
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "avg"
-    },
-    {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "format": "percentunit",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Query Response Time Quantile [$interval]",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
       },
-      "gridPos": {
-        "h": 3,
-        "w": 8,
-        "x": 16,
-        "y": 1
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
       },
-      "id": 20,
-      "interval": null,
-      "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
+      "yaxes": [
         {
-          "name": "value to text",
-          "value": 1
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
         },
         {
-          "name": "range to text",
-          "value": 2
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
         }
       ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "options": {},
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "expr": "sum(rate(coredns_cache_hits_total{}[$interval])) / (sum(rate(coredns_cache_misses_total{}[$interval])) + sum(rate(coredns_cache_hits_total{}[$interval])))",
-          "format": "time_series",
-          "instant": true,
-          "intervalFactor": 1,
-          "refId": "A"
-        }
-      ],
-      "thresholds": "",
-      "title": "Average Cache Hit Rate [$interval]",
-      "transparent": true,
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "avg"
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 4
+        "y": 8
       },
-      "id": 38,
+      "id": 33,
       "panels": [],
-      "title": "General Stats",
+      "title": "Alert Sender",
       "type": "row"
     },
     {
@@ -296,21 +239,20 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "decimals": 1,
+      "datasource": "Prometheus",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 6,
-        "w": 24,
+        "h": 7,
+        "w": 12,
         "x": 0,
-        "y": 5
+        "y": 9
       },
-      "id": 2,
+      "id": 27,
       "legend": {
         "alignAsTable": true,
         "avg": true,
         "current": true,
-        "hideEmpty": true,
-        "hideZero": true,
         "max": false,
         "min": false,
         "rightSide": true,
@@ -324,7 +266,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -335,11 +279,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(coredns_dns_request_count_total{}[$interval])) by (kubernetes_name)",
+          "expr": "rate(thanos_alert_sender_alerts_sent_total{kubernetes_namespace=~\"$namespace\",$labelselector=\"$labelvalue\"}[$interval])",
           "format": "time_series",
-          "instant": false,
           "intervalFactor": 1,
-          "legendFormat": "{{kubernetes_name}}",
+          "legendFormat": "{{alertmanager}}",
           "refId": "A"
         }
       ],
@@ -347,7 +290,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "RPS [$interval avg]",
+      "title": "Alerts Sent Rate [$interval]",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -389,14 +332,16 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "Prometheus",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 6,
-        "w": 24,
-        "x": 0,
-        "y": 11
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 9
       },
-      "id": 3,
+      "id": 37,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -414,7 +359,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -425,39 +372,18 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(.999, sum(rate(coredns_dns_request_duration_seconds_bucket{}[$interval])) by (le))",
+          "expr": "rate(thanos_alert_sender_alerts_dropped_total{kubernetes_namespace=~\"$namespace\",$labelselector=\"$labelvalue\"}[$interval])",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "99.9%",
+          "legendFormat": "{{alertmanager}}",
           "refId": "A"
-        },
-        {
-          "expr": "histogram_quantile(.99, sum(rate(coredns_dns_request_duration_seconds_bucket{}[$interval])) by (le))",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "99%",
-          "refId": "B"
-        },
-        {
-          "expr": "histogram_quantile(.90, sum(rate(coredns_dns_request_duration_seconds_bucket{}[$interval])) by (le))",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "90%",
-          "refId": "C"
-        },
-        {
-          "expr": "histogram_quantile(.75, sum(rate(coredns_dns_request_duration_seconds_bucket{}[$interval])) by (le))",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "75% ",
-          "refId": "D"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Response Time [$interval avg]",
+      "title": "Alerts Dropped Rate [$interval]",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -473,7 +399,7 @@
       },
       "yaxes": [
         {
-          "format": "s",
+          "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -499,14 +425,16 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "Prometheus",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 6,
+        "h": 7,
         "w": 24,
         "x": 0,
-        "y": 17
+        "y": 16
       },
-      "id": 6,
+      "id": 35,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -524,7 +452,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -535,39 +465,18 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(.999, sum(rate(coredns_forward_request_duration_seconds_bucket{}[$interval])) by (le, to))",
+          "expr": "histogram_quantile(0.9999, sum(rate(thanos_alert_sender_latency_seconds_bucket{kubernetes_namespace=~\"$namespace\",$labelselector=\"$labelvalue\"}[$interval])) by (alertmanager, le, kubernetes_namespace))",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "99.9% {{to}}",
+          "legendFormat": "99.99 {{kubernetes_namespace}}/{{alertmanager}}",
           "refId": "A"
-        },
-        {
-          "expr": "histogram_quantile(.99, sum(rate(coredns_forward_request_duration_seconds_bucket{}[$interval])) by (le, to))",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "99% {{to}}",
-          "refId": "B"
-        },
-        {
-          "expr": "histogram_quantile(.90, sum(rate(coredns_forward_request_duration_seconds_bucket{}[$interval])) by (le, to))",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "90% {{to}}",
-          "refId": "C"
-        },
-        {
-          "expr": "histogram_quantile(.75, sum(rate(coredns_forward_request_duration_seconds_bucket{}[$interval])) by (le, to))",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "75% {{to}}",
-          "refId": "D"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Upstream Response Time [$interval avg]",
+      "title": "Alert Sender Latency Quantile [$interval]",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -583,7 +492,7 @@
       },
       "yaxes": [
         {
-          "format": "s",
+          "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -605,110 +514,34 @@
       }
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "decimals": 1,
-      "fill": 1,
+      "collapsed": false,
+      "datasource": null,
       "gridPos": {
-        "h": 6,
+        "h": 1,
         "w": 24,
         "x": 0,
         "y": 23
       },
-      "id": 4,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": false,
-        "min": false,
-        "rightSide": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {},
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "sum(rate(coredns_cache_hits_total{}[$interval])) / (sum(rate(coredns_cache_misses_total{}[$interval])) + sum(rate(coredns_cache_hits_total{}[$interval])))",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "Hit Rate",
-          "refId": "D"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Cache Hit Rate [$interval avg]",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": null,
-          "format": "percentunit",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": "0",
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "id": 41,
+      "panels": [],
+      "title": "Compaction",
+      "type": "row"
     },
     {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "decimals": 1,
+      "datasource": "Prometheus",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 6,
+        "h": 7,
         "w": 12,
         "x": 0,
-        "y": 29
+        "y": 24
       },
-      "id": 5,
+      "id": 39,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -717,8 +550,6 @@
         "min": false,
         "rightSide": true,
         "show": true,
-        "sort": "current",
-        "sortDesc": true,
         "total": false,
         "values": true
       },
@@ -726,7 +557,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -737,18 +570,18 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(coredns_dns_response_rcode_count_total{}[$interval])) by (rcode)",
+          "expr": "sum(rate(prometheus_tsdb_compactions_total{$labelselector=\"$labelvalue\",kubernetes_namespace=~\"$namespace\"}[$interval])) by (kubernetes_namespace)",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{rcode}}",
-          "refId": "D"
+          "legendFormat": "{{kubernetes_namespace}}",
+          "refId": "A"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Response Codes Per  Second [$interval avg]",
+      "title": "Compaction Rate [$interval]",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -764,12 +597,11 @@
       },
       "yaxes": [
         {
-          "decimals": null,
           "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": "0",
+          "min": null,
           "show": true
         },
         {
@@ -791,14 +623,16 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "Prometheus",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 6,
+        "h": 7,
         "w": 12,
         "x": 12,
-        "y": 29
+        "y": 24
       },
-      "id": 7,
+      "id": 43,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -816,7 +650,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -827,18 +663,18 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(coredns_forward_response_rcode_count_total{}[$interval])) by (rcode, to)",
+          "expr": "sum(rate(prometheus_tsdb_compactions_failed_total{$labelselector=\"$labelvalue\",kubernetes_namespace=~\"$namespace\"}[$interval])) by (kubernetes_namespace)",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{rcode}} {{to}}",
-          "refId": "D"
+          "legendFormat": "{{kubernetes_namespace}}",
+          "refId": "A"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Upstream Response Codes Per  Second [$interval avg]",
+      "title": "Compaction Failure Rate [$interval]",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -854,12 +690,11 @@
       },
       "yaxes": [
         {
-          "decimals": null,
           "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": "0",
+          "min": null,
           "show": true
         },
         {
@@ -881,15 +716,16 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "decimals": 0,
+      "datasource": "Prometheus",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 6,
-        "w": 12,
+        "h": 7,
+        "w": 24,
         "x": 0,
-        "y": 35
+        "y": 31
       },
-      "id": 8,
+      "id": 45,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -907,7 +743,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -918,18 +756,18 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(coredns_forward_sockets_open{}) by (to)",
+          "expr": "histogram_quantile(0.9999, sum(rate(prometheus_tsdb_compaction_duration_seconds_bucket{$labelselector=\"$labelvalue\",kubernetes_namespace=~\"$namespace\"}[$interval])) by (kubernetes_namespace,le))",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{to}}",
-          "refId": "D"
+          "legendFormat": "99.99 {{kubernetes_namespace}}",
+          "refId": "A"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Upstream Sockets Open [$interval avg]",
+      "title": "Compaction Duration Quantile [$interval]",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -945,12 +783,11 @@
       },
       "yaxes": [
         {
-          "decimals": null,
           "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": "0",
+          "min": null,
           "show": true
         },
         {
@@ -968,120 +805,125 @@
       }
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "decimals": 0,
-      "fill": 1,
+      "collapsed": false,
+      "datasource": null,
       "gridPos": {
-        "h": 6,
-        "w": 12,
-        "x": 12,
-        "y": 35
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 38
       },
-      "id": 9,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": false,
-        "min": false,
-        "rightSide": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {},
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "rate(coredns_panic_count_total{}[$interval])",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "{{kubernetes_name}}",
-          "refId": "D"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Panics Per Second [$interval avg]",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": null,
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": "0",
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "id": 25,
+      "panels": [],
+      "repeat": null,
+      "title": "Ops",
+      "type": "row"
     },
     {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "decimals": 0,
+      "datasource": "Prometheus",
+      "editable": true,
+      "error": false,
       "fill": 1,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 41
+        "y": 39
       },
-      "id": 12,
+      "id": 13,
       "legend": {
-        "alignAsTable": false,
         "avg": false,
         "current": false,
         "max": false,
         "min": false,
-        "rightSide": false,
-        "show": false,
-        "sort": "current",
-        "sortDesc": true,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {},
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "go_memstats_heap_alloc_bytes{$labelselector=\"$labelvalue\",kubernetes_namespace=~\"$namespace\"}",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "{{kubernetes_namespace}} {{kubernetes_name}}",
+          "refId": "A",
+          "step": 2
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Memory Used",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ]
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fill": 1,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 39
+      },
+      "id": 19,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
         "total": false,
         "values": false
       },
@@ -1100,107 +942,16 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "go_memstats_alloc_bytes{kubernetes_name=~\"kube-dns\"}",
+          "expr": "go_goroutines{$labelselector=\"$labelvalue\",kubernetes_namespace=~\"$namespace\"}",
           "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "{{kubernetes_name}}",
-          "refId": "D"
+          "intervalFactor": 2,
+          "legendFormat": "{{kubernetes_namespace}} {{kubernetes_name}}",
+          "refId": "A",
+          "step": 2
         }
       ],
       "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Memory Used",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": null,
-          "format": "decbytes",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": "0",
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "decimals": 0,
-      "fill": 1,
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 12,
-        "y": 41
-      },
-      "id": 10,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": false,
-        "min": false,
-        "rightSide": true,
-        "show": false,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {},
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "go_goroutines{kubernetes_name=~\"kube-dns\" }",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "{{kubernetes_name}}",
-          "refId": "D"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
       "timeShift": null,
       "title": "Goroutines",
       "tooltip": {
@@ -1218,12 +969,11 @@
       },
       "yaxes": [
         {
-          "decimals": null,
           "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": "0",
+          "min": null,
           "show": true
         },
         {
@@ -1234,43 +984,37 @@
           "min": null,
           "show": true
         }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      ]
     },
     {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "decimals": 0,
+      "datasource": "Prometheus",
+      "editable": true,
+      "error": false,
       "fill": 1,
       "gridPos": {
-        "h": 6,
-        "w": 12,
+        "h": 7,
+        "w": 24,
         "x": 0,
-        "y": 48
+        "y": 46
       },
-      "id": 11,
+      "id": 18,
       "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
+        "avg": false,
+        "current": false,
         "max": false,
         "min": false,
-        "rightSide": true,
-        "show": false,
-        "sort": "current",
-        "sortDesc": true,
+        "show": true,
         "total": false,
-        "values": true
+        "values": false
       },
       "lines": true,
       "linewidth": 1,
       "links": [],
-      "nullPointMode": "null",
+      "nullPointMode": "connected",
       "options": {},
       "percentage": false,
       "pointradius": 5,
@@ -1282,19 +1026,20 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "avg(go_gc_duration_seconds{kubernetes_name=~\"kube-dns\"}) by (quantile, kubernetes_name)",
+          "expr": "go_gc_duration_seconds{$labelselector=\"$labelvalue\", quantile=\"1\"}",
           "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "{{quantile}} {{kubernetes_name}}",
-          "refId": "D"
+          "intervalFactor": 2,
+          "legendFormat": "{{kubernetes_namespace}} {{kubernetes_name}} ",
+          "refId": "A",
+          "step": 2
         }
       ],
       "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [],
       "timeShift": null,
-      "title": "GC Quantiles",
+      "title": "GC Time Quantiles",
       "tooltip": {
+        "msResolution": false,
         "shared": true,
         "sort": 0,
         "value_type": "individual"
@@ -1309,12 +1054,11 @@
       },
       "yaxes": [
         {
-          "decimals": null,
           "format": "s",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": "0",
+          "min": null,
           "show": true
         },
         {
@@ -1325,109 +1069,16 @@
           "min": null,
           "show": true
         }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "decimals": 0,
-      "fill": 1,
-      "gridPos": {
-        "h": 6,
-        "w": 12,
-        "x": 12,
-        "y": 48
-      },
-      "id": 13,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": false,
-        "min": false,
-        "rightSide": true,
-        "show": false,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {},
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "process_open_fds{kubernetes_name=~\"kube-dns\"}",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "{{quantile}} {{kubernetes_name}}",
-          "refId": "D"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Open FDs",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": null,
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": "0",
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      ]
     }
   ],
   "refresh": "30s",
   "revision": null,
-  "schemaVersion": 18,
+  "schemaVersion": 20,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "thanos"
+  ],
   "templating": {
     "list": [
       {
@@ -1439,7 +1090,7 @@
           "value": "10m"
         },
         "hide": 0,
-        "label": "Interval",
+        "label": null,
         "name": "interval",
         "options": [
           {
@@ -1497,11 +1148,72 @@
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
+      },
+      {
+        "allValue": ".*",
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": "Prometheus",
+        "definition": "",
+        "hide": 0,
+        "includeAll": true,
+        "label": "namespace",
+        "multi": false,
+        "name": "namespace",
+        "options": [],
+        "query": "label_values(kubernetes_namespace)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "current": {
+          "text": "app",
+          "value": "app"
+        },
+        "hide": 2,
+        "label": null,
+        "name": "labelselector",
+        "options": [
+          {
+            "text": "app",
+            "value": "app"
+          }
+        ],
+        "query": "app",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "current": {
+          "text": "thanos-rule",
+          "value": "thanos-rule"
+        },
+        "hide": 2,
+        "label": null,
+        "name": "labelvalue",
+        "options": [
+          {
+            "text": "thanos-rule",
+            "value": "thanos-rule"
+          }
+        ],
+        "query": "thanos-rule",
+        "skipUrlSync": false,
+        "type": "constant"
       }
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-12h",
     "to": "now"
   },
   "timepicker": {
@@ -1529,8 +1241,8 @@
       "30d"
     ]
   },
-  "timezone": "",
-  "title": "kube dns",
-  "uid": "yMFxcjFiz",
-  "version": 4
+  "timezone": "browser",
+  "title": "Thanos Rule",
+  "uid": "rjUCNfHmz",
+  "version": 1
 }
