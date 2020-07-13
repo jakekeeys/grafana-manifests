@@ -15,12 +15,12 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 79,
-  "iteration": 1567334663657,
+  "iteration": 1594633041353,
   "links": [],
   "panels": [
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -41,6 +41,13 @@
         "#5794F2",
         "#5794F2"
       ],
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "watt",
       "gauge": {
         "maxValue": 100,
@@ -72,7 +79,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -90,7 +96,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "sensor_unit_w{domain=\"sensor\", entity=\"sensor.emoncms_use\", friendly_name=\"EmonCMS use\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
       "targets": [
         {
           "expr": "sensor_unit_w{entity=\"sensor.emoncms_use\"}",
@@ -125,6 +131,13 @@
         "#FF9830",
         "#FF9830"
       ],
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "watt",
       "gauge": {
         "maxValue": 100,
@@ -156,7 +169,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -174,7 +186,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "sensor_unit_w{domain=\"sensor\", entity=\"sensor.emoncms_solar\", friendly_name=\"EmonCMS solar\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
       "targets": [
         {
           "expr": "sensor_unit_w{entity=\"sensor.emoncms_solar\"}",
@@ -209,6 +221,13 @@
         "#B877D9",
         "#B877D9"
       ],
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "watt",
       "gauge": {
         "maxValue": 100,
@@ -240,7 +259,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -258,7 +276,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "{domain=\"sensor\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
       "targets": [
         {
           "expr": "sensor_unit_w{entity=\"sensor.emoncms_import\"} + ignoring(entity, friendly_name) (clamp_min(sensor_unit_w{entity=\"sensor.emoncms_solar\"} - ignoring(entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_use\"}, 0) * - 1)",
@@ -292,7 +310,14 @@
         "#5794F2",
         "#5794F2"
       ],
+      "datasource": null,
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "percentunit",
       "gauge": {
         "maxValue": 100,
@@ -324,7 +349,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "pluginVersion": "6.2.5",
       "postfix": "",
       "postfixFontSize": "50%",
@@ -343,13 +367,15 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "{domain=\"sensor\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
       "targets": [
         {
-          "expr": "(sensor_unit_w{entity=\"sensor.emoncms_use_kwh\"} - ignoring (entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_import_kwh\"}) / ignoring (entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_use_kwh\"}",
+          "expr": "(sensor_unit_kwh{entity=\"sensor.emoncms_use_kwh\"} - ignoring (entity, friendly_name) sensor_unit_kwh{entity=\"sensor.emoncms_import_kwh\"}) / ignoring (entity, friendly_name) sensor_unit_kwh{entity=\"sensor.emoncms_use_kwh\"}",
           "format": "time_series",
           "instant": true,
+          "interval": "",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -377,6 +403,13 @@
         "#FF9830",
         "#FF9830"
       ],
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "percentunit",
       "gauge": {
         "maxValue": 100,
@@ -408,7 +441,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "pluginVersion": "6.2.5",
       "postfix": "",
       "postfixFontSize": "50%",
@@ -427,13 +459,15 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "{domain=\"sensor\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
       "targets": [
         {
-          "expr": "((sensor_unit_w{entity=\"sensor.emoncms_use_kwh\"} - ignoring(entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_import_kwh\"} - ignoring(entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_solar_kwh\"}) * - 1) / ignoring (entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_solar_kwh\"}",
+          "expr": "((sensor_unit_kwh{entity=\"sensor.emoncms_use_kwh\"} - ignoring(entity, friendly_name) sensor_unit_kwh{entity=\"sensor.emoncms_import_kwh\"} - ignoring(entity, friendly_name) sensor_unit_kwh{entity=\"sensor.emoncms_solar_kwh\"}) * - 1) / ignoring (entity, friendly_name) sensor_unit_kwh{entity=\"sensor.emoncms_solar_kwh\"}",
           "format": "time_series",
           "instant": true,
+          "interval": "",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -461,6 +495,13 @@
         "#B877D9",
         "#B877D9"
       ],
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "percentunit",
       "gauge": {
         "maxValue": 100,
@@ -492,7 +533,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "pluginVersion": "6.2.5",
       "postfix": "",
       "postfixFontSize": "50%",
@@ -511,13 +551,15 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "{domain=\"sensor\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
       "targets": [
         {
-          "expr": "sensor_unit_w{entity=\"sensor.emoncms_import_kwh\"} / ignoring(entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_use_kwh\"}",
+          "expr": "sensor_unit_kwh{entity=\"sensor.emoncms_import_kwh\"} / ignoring(entity, friendly_name) sensor_unit_kwh{entity=\"sensor.emoncms_use_kwh\"}",
           "format": "time_series",
           "instant": true,
+          "interval": "",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -541,13 +583,22 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 12,
+        "h": 9,
         "w": 24,
         "x": 0,
         "y": 5
       },
+      "hiddenSeries": false,
       "id": 2,
       "legend": {
         "alignAsTable": true,
@@ -564,7 +615,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -654,6 +707,125 @@
       }
     },
     {
+      "aliasColors": {},
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "hiddenSeries": false,
+      "id": 33,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": false,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Peak",
+          "color": "#5794F2"
+        },
+        {
+          "alias": "Off Peak",
+          "color": "#73BF69"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum(sensor_unit_w{entity=\"sensor.emoncms_import\"}) and ((hour() >= 0 and hour() < 2) or (hour() >= 7 and hour() < 22))",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 10,
+          "legendFormat": "Peak",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(sensor_unit_w{entity=\"sensor.emoncms_import\"}) and ((hour() >= 22 and hour() < 24) or (hour() >= 2 and hour() < 7))",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 10,
+          "legendFormat": "Off Peak",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "watt",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
       "cacheTimeout": null,
       "colorBackground": true,
       "colorValue": false,
@@ -662,7 +834,14 @@
         "#5794F2",
         "#5794F2"
       ],
+      "datasource": null,
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "kwatth",
       "gauge": {
         "maxValue": 100,
@@ -675,7 +854,7 @@
         "h": 2,
         "w": 6,
         "x": 0,
-        "y": 17
+        "y": 20
       },
       "id": 13,
       "interval": null,
@@ -694,7 +873,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "pluginVersion": "6.2.5",
       "postfix": "",
       "postfixFontSize": "50%",
@@ -713,13 +891,15 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "sensor_unit_kwh{domain=\"sensor\", entity=\"sensor.emoncms_use_kwh\", friendly_name=\"EmonCMS use_kwh\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
       "targets": [
         {
-          "expr": "sensor_unit_w{entity=\"sensor.emoncms_use_kwh\"}",
+          "expr": "sensor_unit_kwh{entity=\"sensor.emoncms_use_kwh\"}",
           "format": "time_series",
           "instant": true,
+          "interval": "",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -747,7 +927,14 @@
         "#FF9830",
         "#FF9830"
       ],
+      "datasource": null,
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "kwatth",
       "gauge": {
         "maxValue": 100,
@@ -760,7 +947,7 @@
         "h": 2,
         "w": 6,
         "x": 6,
-        "y": 17
+        "y": 20
       },
       "id": 17,
       "interval": null,
@@ -779,7 +966,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "pluginVersion": "6.2.5",
       "postfix": "",
       "postfixFontSize": "50%",
@@ -798,13 +984,15 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "sensor_unit_kwh{domain=\"sensor\", entity=\"sensor.emoncms_solar_kwh\", friendly_name=\"EmonCMS solar_kwh\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
       "targets": [
         {
-          "expr": "sensor_unit_w{entity=\"sensor.emoncms_solar_kwh\"}",
+          "expr": "sensor_unit_kwh{entity=\"sensor.emoncms_solar_kwh\"}",
           "format": "time_series",
           "instant": true,
+          "interval": "",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -832,7 +1020,14 @@
         "#F2495C",
         "#F2495C"
       ],
+      "datasource": null,
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "kwatth",
       "gauge": {
         "maxValue": 100,
@@ -845,7 +1040,7 @@
         "h": 2,
         "w": 6,
         "x": 12,
-        "y": 17
+        "y": 20
       },
       "id": 16,
       "interval": null,
@@ -864,7 +1059,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "pluginVersion": "6.2.5",
       "postfix": "",
       "postfixFontSize": "50%",
@@ -883,13 +1077,15 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "sensor_unit_kwh{domain=\"sensor\", entity=\"sensor.emoncms_import_kwh\", friendly_name=\"EmonCMS import_kwh\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
       "targets": [
         {
-          "expr": "sensor_unit_w{entity=\"sensor.emoncms_import_kwh\"}",
+          "expr": "sensor_unit_kwh{entity=\"sensor.emoncms_import_kwh\"}",
           "format": "time_series",
           "instant": true,
+          "interval": "",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -917,7 +1113,14 @@
         "#73BF69",
         "#73BF69"
       ],
+      "datasource": null,
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "kwatth",
       "gauge": {
         "maxValue": 100,
@@ -930,7 +1133,7 @@
         "h": 2,
         "w": 6,
         "x": 18,
-        "y": 17
+        "y": 20
       },
       "id": 19,
       "interval": null,
@@ -949,7 +1152,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "pluginVersion": "6.2.5",
       "postfix": "",
       "postfixFontSize": "50%",
@@ -968,13 +1170,15 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "{domain=\"sensor\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
       "targets": [
         {
-          "expr": "(sensor_unit_w{entity=\"sensor.emoncms_use_kwh\"} - ignoring(entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_import_kwh\"} - ignoring(entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_solar_kwh\"}) * - 1",
+          "expr": "(sensor_unit_kwh{entity=\"sensor.emoncms_use_kwh\"} - ignoring(entity, friendly_name) sensor_unit_kwh{entity=\"sensor.emoncms_import_kwh\"} - ignoring(entity, friendly_name) sensor_unit_kwh{entity=\"sensor.emoncms_solar_kwh\"}) * - 1",
           "format": "time_series",
           "instant": true,
+          "interval": "",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -998,13 +1202,22 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 0,
-        "y": 19
+        "y": 22
       },
+      "hiddenSeries": false,
       "id": 11,
       "legend": {
         "alignAsTable": false,
@@ -1020,7 +1233,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -1089,13 +1304,22 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 6,
-        "y": 19
+        "y": 22
       },
+      "hiddenSeries": false,
       "id": 10,
       "legend": {
         "alignAsTable": false,
@@ -1111,7 +1335,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -1180,13 +1406,22 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 12,
-        "y": 19
+        "y": 22
       },
+      "hiddenSeries": false,
       "id": 8,
       "legend": {
         "alignAsTable": false,
@@ -1202,7 +1437,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -1271,13 +1508,22 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 18,
-        "y": 19
+        "y": 22
       },
+      "hiddenSeries": false,
       "id": 9,
       "legend": {
         "alignAsTable": false,
@@ -1293,7 +1539,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -1366,6 +1614,13 @@
         "#5794F2",
         "#5794F2"
       ],
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "watt",
       "gauge": {
         "maxValue": 100,
@@ -1378,7 +1633,7 @@
         "h": 2,
         "w": 6,
         "x": 0,
-        "y": 27
+        "y": 30
       },
       "id": 24,
       "interval": null,
@@ -1397,7 +1652,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1415,7 +1669,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "sensor_unit_w{domain=\"sensor\", entity=\"sensor.emoncms_use\", friendly_name=\"EmonCMS use\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
       "targets": [
         {
           "expr": "sensor_unit_w{entity=\"sensor.emoncms_use\"}",
@@ -1450,6 +1704,13 @@
         "#FF9830",
         "#FF9830"
       ],
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "watt",
       "gauge": {
         "maxValue": 100,
@@ -1462,7 +1723,7 @@
         "h": 2,
         "w": 6,
         "x": 6,
-        "y": 27
+        "y": 30
       },
       "id": 25,
       "interval": null,
@@ -1481,7 +1742,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1499,7 +1759,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "sensor_unit_w{domain=\"sensor\", entity=\"sensor.emoncms_solar\", friendly_name=\"EmonCMS solar\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
       "targets": [
         {
           "expr": "sensor_unit_w{entity=\"sensor.emoncms_solar\"}",
@@ -1534,6 +1794,13 @@
         "#F2495C",
         "#F2495C"
       ],
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "watt",
       "gauge": {
         "maxValue": 100,
@@ -1546,7 +1813,7 @@
         "h": 2,
         "w": 6,
         "x": 12,
-        "y": 27
+        "y": 30
       },
       "id": 6,
       "interval": null,
@@ -1565,7 +1832,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1583,7 +1849,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "sensor_unit_w{domain=\"sensor\", entity=\"sensor.emoncms_import\", friendly_name=\"EmonCMS import\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
       "targets": [
         {
           "expr": "sensor_unit_w{entity=\"sensor.emoncms_import\"}",
@@ -1617,6 +1883,13 @@
         "#73BF69",
         "#73BF69"
       ],
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "watt",
       "gauge": {
         "maxValue": 100,
@@ -1629,7 +1902,7 @@
         "h": 2,
         "w": 6,
         "x": 18,
-        "y": 27
+        "y": 30
       },
       "id": 18,
       "interval": null,
@@ -1648,7 +1921,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1666,7 +1938,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "{domain=\"sensor\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
       "targets": [
         {
           "expr": "clamp_min(sensor_unit_w{entity=\"sensor.emoncms_solar\"} - ignoring(entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_use\"}, 0)",
@@ -1692,11 +1964,12 @@
       "valueName": "current"
     },
     {
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 29
+        "y": 32
       },
       "id": 29,
       "panels": [],
@@ -1704,8 +1977,8 @@
       "scopedVars": {
         "sonoffFriendlyName": {
           "selected": false,
-          "text": "Servers ENERGY Power",
-          "value": "Servers ENERGY Power"
+          "text": "Sonoff ENERGY Power",
+          "value": "Sonoff ENERGY Power"
         }
       },
       "title": "Socket",
@@ -1716,13 +1989,22 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 30
+        "y": 33
       },
+      "hiddenSeries": false,
       "id": 31,
       "legend": {
         "avg": false,
@@ -1737,7 +2019,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -1745,8 +2029,8 @@
       "scopedVars": {
         "sonoffFriendlyName": {
           "selected": false,
-          "text": "Servers ENERGY Power",
-          "value": "Servers ENERGY Power"
+          "text": "Sonoff ENERGY Power",
+          "value": "Sonoff ENERGY Power"
         }
       },
       "seriesOverrides": [],
@@ -1757,123 +2041,7 @@
         {
           "expr": "sensor_unit_w{friendly_name=\"$sonoffFriendlyName\"}",
           "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "{{friendly_name}}",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "$sonoffFriendlyName",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "watt",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 38
-      },
-      "id": 32,
-      "panels": [],
-      "repeat": null,
-      "repeatIteration": 1567334663657,
-      "repeatPanelId": 29,
-      "scopedVars": {
-        "sonoffFriendlyName": {
-          "selected": false,
-          "text": "Office ENERGY Power",
-          "value": "Office ENERGY Power"
-        }
-      },
-      "title": "Socket",
-      "type": "row"
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "fill": 2,
-      "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 39
-      },
-      "id": 33,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {},
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "repeatIteration": 1567334663657,
-      "repeatPanelId": 31,
-      "repeatedByRow": true,
-      "scopedVars": {
-        "sonoffFriendlyName": {
-          "selected": false,
-          "text": "Office ENERGY Power",
-          "value": "Office ENERGY Power"
-        }
-      },
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "sensor_unit_w{friendly_name=\"$sonoffFriendlyName\"}",
-          "format": "time_series",
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{friendly_name}}",
           "refId": "A"
@@ -1922,7 +2090,7 @@
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 18,
+  "schemaVersion": 25,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -1930,6 +2098,7 @@
       {
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "All",
           "value": [
             "$__all"
@@ -1957,7 +2126,7 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-2d",
     "to": "now"
   },
   "timepicker": {
