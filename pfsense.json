@@ -16,8 +16,7 @@
   "editable": true,
   "gnetId": 12023,
   "graphTooltip": 0,
-  "id": 31,
-  "iteration": 1591909639767,
+  "iteration": 1594634176654,
   "links": [],
   "panels": [
     {
@@ -194,7 +193,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "7.0.3",
+      "pluginVersion": "7.0.6",
       "repeat": null,
       "repeatDirection": "h",
       "targets": [
@@ -292,7 +291,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "7.0.3",
+      "pluginVersion": "7.0.6",
       "targets": [
         {
           "alias": "CPU Total",
@@ -404,7 +403,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "7.0.3",
+      "pluginVersion": "7.0.6",
       "targets": [
         {
           "alias": "Ram",
@@ -506,7 +505,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "7.0.3",
+      "pluginVersion": "7.0.6",
       "targets": [
         {
           "alias": "Load",
@@ -1426,14 +1425,16 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:666",
           "format": "bps",
           "label": "",
-          "logBase": 2,
+          "logBase": 1,
           "max": null,
           "min": null,
           "show": true
         },
         {
+          "$$hashKey": "object:667",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1589,14 +1590,16 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:774",
           "format": "bps",
           "label": "",
-          "logBase": 2,
+          "logBase": 1,
           "max": null,
           "min": null,
           "show": true
         },
         {
+          "$$hashKey": "object:775",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1679,6 +1682,7 @@
           "alias": "",
           "bucketAggs": [
             {
+              "$$hashKey": "object:844",
               "fake": true,
               "field": "iface",
               "id": "3",
@@ -1691,6 +1695,7 @@
               "type": "terms"
             },
             {
+              "$$hashKey": "object:845",
               "field": "timestamp",
               "id": "2",
               "settings": {
@@ -1704,6 +1709,7 @@
           "dsType": "elasticsearch",
           "metrics": [
             {
+              "$$hashKey": "object:842",
               "field": "select field",
               "id": "1",
               "type": "count"
@@ -1718,7 +1724,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Pass Events",
+      "title": "Block Events",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1734,6 +1740,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:893",
           "format": "none",
           "label": "Cantidad",
           "logBase": 1,
@@ -1742,6 +1749,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:894",
           "format": "none",
           "label": "",
           "logBase": 1,
@@ -5619,5 +5627,5 @@
   "timezone": "",
   "title": "pfsense",
   "uid": "t_qMZwra",
-  "version": 2
+  "version": 1
 }
