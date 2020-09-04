@@ -16,7 +16,7 @@
   "editable": true,
   "gnetId": 12023,
   "graphTooltip": 0,
-  "iteration": 1594634176654,
+  "iteration": 1599239970351,
   "links": [],
   "panels": [
     {
@@ -193,7 +193,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "7.0.6",
+      "pluginVersion": "7.1.5",
       "repeat": null,
       "repeatDirection": "h",
       "targets": [
@@ -291,7 +291,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "7.0.6",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "alias": "CPU Total",
@@ -403,7 +403,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "7.0.6",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "alias": "Ram",
@@ -505,7 +505,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "7.0.6",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "alias": "Load",
@@ -564,7 +564,8 @@
       "datasource": "influxdb-pfsense",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": []
         },
         "overrides": []
       },
@@ -592,10 +593,8 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -709,7 +708,8 @@
       "datasource": "influxdb-pfsense",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": []
         },
         "overrides": []
       },
@@ -737,10 +737,8 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -862,7 +860,8 @@
       "datasource": "influxdb-pfsense",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": []
         },
         "overrides": []
       },
@@ -890,10 +889,8 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -995,7 +992,8 @@
       "datasource": "influxdb-pfsense",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": []
         },
         "overrides": []
       },
@@ -1021,10 +1019,8 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1142,7 +1138,8 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": []
         },
         "overrides": []
       },
@@ -1173,10 +1170,8 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1292,7 +1287,8 @@
       "datasource": "influxdb-pfsense",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": []
         },
         "overrides": []
       },
@@ -1322,10 +1318,8 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1393,8 +1387,8 @@
           "tags": [
             {
               "key": "host",
-              "operator": "=~",
-              "value": "/^$Host$/"
+              "operator": "=",
+              "value": "pfsense.yonsea.co.uk"
             },
             {
               "condition": "AND",
@@ -1456,7 +1450,8 @@
       "datasource": "influxdb-pfsense",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": []
         },
         "overrides": []
       },
@@ -1486,10 +1481,8 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1635,7 +1628,8 @@
       "datasource": "elasticsearch-pfsense",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": []
         },
         "overrides": []
       },
@@ -1666,10 +1660,8 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1771,7 +1763,8 @@
       "datasource": "elasticsearch-pfsense",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": []
         },
         "overrides": []
       },
@@ -1802,10 +1795,8 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -5347,8 +5338,8 @@
       "valueName": "current"
     }
   ],
-  "refresh": "5s",
-  "schemaVersion": 25,
+  "refresh": false,
+  "schemaVersion": 26,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -5427,16 +5418,21 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "3_WAN_DHCP + TT_WAN_0_PPPOE + TT_WAN_1_PPPOE",
+          "tags": [],
+          "text": [
+            "DSL_0_WAN_PPPOE",
+            "DSL_1_WAN_PPPOE",
+            "LTE_WAN_DHCP"
+          ],
           "value": [
-            "3_WAN_DHCP",
-            "TT_WAN_0_PPPOE",
-            "TT_WAN_1_PPPOE"
+            "DSL_0_WAN_PPPOE",
+            "DSL_1_WAN_PPPOE",
+            "LTE_WAN_DHCP"
           ]
         },
         "datasource": "$dataSource",
         "definition": "SHOW TAG VALUES FROM \"gateways\" WITH KEY = \"gateway_name\" WHERE \"host\" =~ /^$Host$/ ",
-        "hide": 2,
+        "hide": 0,
         "includeAll": true,
         "label": null,
         "multi": true,
@@ -5457,36 +5453,32 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "igb0 + pppoe0 + pppoe1",
+          "tags": [],
+          "text": [
+            "All"
+          ],
           "value": [
-            "igb0",
-            "pppoe0",
-            "pppoe1"
+            "$__all"
           ]
         },
-        "hide": 2,
+        "hide": 0,
         "includeAll": true,
         "label": null,
         "multi": true,
         "name": "WAN",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "All",
             "value": "$__all"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "igb0",
             "value": "igb0"
           },
           {
-            "selected": true,
-            "text": "pppoe0",
-            "value": "pppoe0"
-          },
-          {
-            "selected": true,
+            "selected": false,
             "text": "pppoe1",
             "value": "pppoe1"
           },
@@ -5496,7 +5488,7 @@
             "value": "pppoe2"
           }
         ],
-        "query": "igb0,pppoe0,pppoe1,pppoe2",
+        "query": "igb0,pppoe1,pppoe2",
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
@@ -5608,7 +5600,7 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {
