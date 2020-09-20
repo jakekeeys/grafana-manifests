@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1594633041353,
+  "iteration": 1600632250565,
   "links": [],
   "panels": [
     {
@@ -586,7 +586,8 @@
       "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": []
         },
         "overrides": []
       },
@@ -615,10 +616,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -714,7 +713,8 @@
       "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": []
         },
         "overrides": []
       },
@@ -743,10 +743,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1205,7 +1203,8 @@
       "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": []
         },
         "overrides": []
       },
@@ -1233,10 +1232,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1307,7 +1304,8 @@
       "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": []
         },
         "overrides": []
       },
@@ -1335,10 +1333,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1409,7 +1405,8 @@
       "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": []
         },
         "overrides": []
       },
@@ -1437,10 +1434,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1511,7 +1506,8 @@
       "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": []
         },
         "overrides": []
       },
@@ -1539,10 +1535,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1964,6 +1958,7 @@
       "valueName": "current"
     },
     {
+      "collapsed": false,
       "datasource": null,
       "gridPos": {
         "h": 1,
@@ -1974,13 +1969,6 @@
       "id": 29,
       "panels": [],
       "repeat": "sonoffFriendlyName",
-      "scopedVars": {
-        "sonoffFriendlyName": {
-          "selected": false,
-          "text": "Sonoff ENERGY Power",
-          "value": "Sonoff ENERGY Power"
-        }
-      },
       "title": "Socket",
       "type": "row"
     },
@@ -1992,7 +1980,8 @@
       "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": []
         },
         "overrides": []
       },
@@ -2019,27 +2008,18 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "scopedVars": {
-        "sonoffFriendlyName": {
-          "selected": false,
-          "text": "Sonoff ENERGY Power",
-          "value": "Sonoff ENERGY Power"
-        }
-      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sensor_unit_w{friendly_name=\"$sonoffFriendlyName\"}",
+          "expr": "power_w{friendly_name=~\"$sonoffFriendlyName\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -2090,7 +2070,7 @@
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 25,
+  "schemaVersion": 26,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -2099,20 +2079,22 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "All",
+          "text": [
+            "All"
+          ],
           "value": [
             "$__all"
           ]
         },
         "datasource": "Prometheus",
-        "definition": "label_values(sensor_unit_w{entity=~\"sensor.sonoff.*\"}, friendly_name)",
+        "definition": "label_values(power_w{entity=~\"sensor.sonoff.*\"}, friendly_name)",
         "hide": 0,
         "includeAll": true,
         "label": null,
         "multi": true,
         "name": "sonoffFriendlyName",
         "options": [],
-        "query": "label_values(sensor_unit_w{entity=~\"sensor.sonoff.*\"}, friendly_name)",
+        "query": "label_values(power_w{entity=~\"sensor.sonoff.*\"}, friendly_name)",
         "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
