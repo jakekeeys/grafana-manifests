@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1600632250565,
+  "iteration": 1601547724304,
   "links": [],
   "panels": [
     {
@@ -96,7 +96,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "sensor_unit_w{domain=\"sensor\", entity=\"sensor.emoncms_use\", friendly_name=\"EmonCMS use\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "sensor_unit_w{entity=\"sensor.emoncms_use\"}",
@@ -186,7 +186,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "sensor_unit_w{domain=\"sensor\", entity=\"sensor.emoncms_solar\", friendly_name=\"EmonCMS solar\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "sensor_unit_w{entity=\"sensor.emoncms_solar\"}",
@@ -276,7 +276,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "{domain=\"sensor\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "sensor_unit_w{entity=\"sensor.emoncms_import\"} + ignoring(entity, friendly_name) (clamp_min(sensor_unit_w{entity=\"sensor.emoncms_solar\"} - ignoring(entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_use\"}, 0) * - 1)",
@@ -367,7 +367,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "{domain=\"sensor\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "(sensor_unit_kwh{entity=\"sensor.emoncms_use_kwh\"} - ignoring (entity, friendly_name) sensor_unit_kwh{entity=\"sensor.emoncms_import_kwh\"}) / ignoring (entity, friendly_name) sensor_unit_kwh{entity=\"sensor.emoncms_use_kwh\"}",
@@ -459,7 +459,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "{domain=\"sensor\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "((sensor_unit_kwh{entity=\"sensor.emoncms_use_kwh\"} - ignoring(entity, friendly_name) sensor_unit_kwh{entity=\"sensor.emoncms_import_kwh\"} - ignoring(entity, friendly_name) sensor_unit_kwh{entity=\"sensor.emoncms_solar_kwh\"}) * - 1) / ignoring (entity, friendly_name) sensor_unit_kwh{entity=\"sensor.emoncms_solar_kwh\"}",
@@ -551,7 +551,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "{domain=\"sensor\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "sensor_unit_kwh{entity=\"sensor.emoncms_import_kwh\"} / ignoring(entity, friendly_name) sensor_unit_kwh{entity=\"sensor.emoncms_use_kwh\"}",
@@ -616,8 +616,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -743,8 +746,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -889,7 +895,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "sensor_unit_kwh{domain=\"sensor\", entity=\"sensor.emoncms_use_kwh\", friendly_name=\"EmonCMS use_kwh\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "sensor_unit_kwh{entity=\"sensor.emoncms_use_kwh\"}",
@@ -982,7 +988,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "sensor_unit_kwh{domain=\"sensor\", entity=\"sensor.emoncms_solar_kwh\", friendly_name=\"EmonCMS solar_kwh\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "sensor_unit_kwh{entity=\"sensor.emoncms_solar_kwh\"}",
@@ -1075,7 +1081,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "sensor_unit_kwh{domain=\"sensor\", entity=\"sensor.emoncms_import_kwh\", friendly_name=\"EmonCMS import_kwh\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "sensor_unit_kwh{entity=\"sensor.emoncms_import_kwh\"}",
@@ -1168,7 +1174,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "{domain=\"sensor\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "(sensor_unit_kwh{entity=\"sensor.emoncms_use_kwh\"} - ignoring(entity, friendly_name) sensor_unit_kwh{entity=\"sensor.emoncms_import_kwh\"} - ignoring(entity, friendly_name) sensor_unit_kwh{entity=\"sensor.emoncms_solar_kwh\"}) * - 1",
@@ -1232,8 +1238,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1333,8 +1342,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1434,8 +1446,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1535,8 +1550,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1663,7 +1681,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "sensor_unit_w{domain=\"sensor\", entity=\"sensor.emoncms_use\", friendly_name=\"EmonCMS use\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "sensor_unit_w{entity=\"sensor.emoncms_use\"}",
@@ -1753,7 +1771,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "sensor_unit_w{domain=\"sensor\", entity=\"sensor.emoncms_solar\", friendly_name=\"EmonCMS solar\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "sensor_unit_w{entity=\"sensor.emoncms_solar\"}",
@@ -1843,7 +1861,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "sensor_unit_w{domain=\"sensor\", entity=\"sensor.emoncms_import\", friendly_name=\"EmonCMS import\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "sensor_unit_w{entity=\"sensor.emoncms_import\"}",
@@ -1932,7 +1950,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "{domain=\"sensor\", instance=\"homeassist.yonsea:8123\", job=\"hass\", monitor=\"prometheus\"}",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "clamp_min(sensor_unit_w{entity=\"sensor.emoncms_solar\"} - ignoring(entity, friendly_name) sensor_unit_w{entity=\"sensor.emoncms_use\"}, 0)",
@@ -1968,8 +1986,15 @@
       },
       "id": 29,
       "panels": [],
-      "repeat": "sonoffFriendlyName",
-      "title": "Socket",
+      "repeat": "friendly_name",
+      "scopedVars": {
+        "friendly_name": {
+          "selected": false,
+          "text": "EmonCMS garage",
+          "value": "EmonCMS garage"
+        }
+      },
+      "title": "$friendly_name",
       "type": "row"
     },
     {
@@ -2008,18 +2033,28 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "scopedVars": {
+        "friendly_name": {
+          "selected": false,
+          "text": "EmonCMS garage",
+          "value": "EmonCMS garage"
+        }
+      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
       "targets": [
         {
-          "expr": "power_w{friendly_name=~\"$sonoffFriendlyName\"}",
+          "expr": "sensor_unit_w{friendly_name=~\"$friendly_name\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -2031,7 +2066,931 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "$sonoffFriendlyName",
+      "title": "$friendly_name",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "watt",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 41
+      },
+      "id": 34,
+      "panels": [],
+      "repeatIteration": 1601547724304,
+      "repeatPanelId": 29,
+      "scopedVars": {
+        "friendly_name": {
+          "selected": false,
+          "text": "EmonCMS import",
+          "value": "EmonCMS import"
+        }
+      },
+      "title": "$friendly_name",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 42
+      },
+      "hiddenSeries": false,
+      "id": 35,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeatIteration": 1601547724304,
+      "repeatPanelId": 31,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "friendly_name": {
+          "selected": false,
+          "text": "EmonCMS import",
+          "value": "EmonCMS import"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sensor_unit_w{friendly_name=~\"$friendly_name\"}",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{friendly_name}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "$friendly_name",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "watt",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 50
+      },
+      "id": 36,
+      "panels": [],
+      "repeatIteration": 1601547724304,
+      "repeatPanelId": 29,
+      "scopedVars": {
+        "friendly_name": {
+          "selected": false,
+          "text": "EmonCMS solar",
+          "value": "EmonCMS solar"
+        }
+      },
+      "title": "$friendly_name",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 51
+      },
+      "hiddenSeries": false,
+      "id": 37,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeatIteration": 1601547724304,
+      "repeatPanelId": 31,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "friendly_name": {
+          "selected": false,
+          "text": "EmonCMS solar",
+          "value": "EmonCMS solar"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sensor_unit_w{friendly_name=~\"$friendly_name\"}",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{friendly_name}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "$friendly_name",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "watt",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 59
+      },
+      "id": 38,
+      "panels": [],
+      "repeatIteration": 1601547724304,
+      "repeatPanelId": 29,
+      "scopedVars": {
+        "friendly_name": {
+          "selected": false,
+          "text": "EmonCMS use",
+          "value": "EmonCMS use"
+        }
+      },
+      "title": "$friendly_name",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 60
+      },
+      "hiddenSeries": false,
+      "id": 39,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeatIteration": 1601547724304,
+      "repeatPanelId": 31,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "friendly_name": {
+          "selected": false,
+          "text": "EmonCMS use",
+          "value": "EmonCMS use"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sensor_unit_w{friendly_name=~\"$friendly_name\"}",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{friendly_name}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "$friendly_name",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "watt",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 68
+      },
+      "id": 40,
+      "panels": [],
+      "repeatIteration": 1601547724304,
+      "repeatPanelId": 29,
+      "scopedVars": {
+        "friendly_name": {
+          "selected": false,
+          "text": "External Sockets Power",
+          "value": "External Sockets Power"
+        }
+      },
+      "title": "$friendly_name",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 69
+      },
+      "hiddenSeries": false,
+      "id": 41,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeatIteration": 1601547724304,
+      "repeatPanelId": 31,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "friendly_name": {
+          "selected": false,
+          "text": "External Sockets Power",
+          "value": "External Sockets Power"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sensor_unit_w{friendly_name=~\"$friendly_name\"}",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{friendly_name}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "$friendly_name",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "watt",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 77
+      },
+      "id": 42,
+      "panels": [],
+      "repeatIteration": 1601547724304,
+      "repeatPanelId": 29,
+      "scopedVars": {
+        "friendly_name": {
+          "selected": false,
+          "text": "Office Sockets Power",
+          "value": "Office Sockets Power"
+        }
+      },
+      "title": "$friendly_name",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 78
+      },
+      "hiddenSeries": false,
+      "id": 43,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeatIteration": 1601547724304,
+      "repeatPanelId": 31,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "friendly_name": {
+          "selected": false,
+          "text": "Office Sockets Power",
+          "value": "Office Sockets Power"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sensor_unit_w{friendly_name=~\"$friendly_name\"}",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{friendly_name}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "$friendly_name",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "watt",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 86
+      },
+      "id": 44,
+      "panels": [],
+      "repeatIteration": 1601547724304,
+      "repeatPanelId": 29,
+      "scopedVars": {
+        "friendly_name": {
+          "selected": false,
+          "text": "Server Sockets Power",
+          "value": "Server Sockets Power"
+        }
+      },
+      "title": "$friendly_name",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 87
+      },
+      "hiddenSeries": false,
+      "id": 45,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeatIteration": 1601547724304,
+      "repeatPanelId": 31,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "friendly_name": {
+          "selected": false,
+          "text": "Server Sockets Power",
+          "value": "Server Sockets Power"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sensor_unit_w{friendly_name=~\"$friendly_name\"}",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{friendly_name}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "$friendly_name",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "watt",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 95
+      },
+      "id": 46,
+      "panels": [],
+      "repeatIteration": 1601547724304,
+      "repeatPanelId": 29,
+      "scopedVars": {
+        "friendly_name": {
+          "selected": false,
+          "text": "Sonoff Pow R2 Power",
+          "value": "Sonoff Pow R2 Power"
+        }
+      },
+      "title": "$friendly_name",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 96
+      },
+      "hiddenSeries": false,
+      "id": 47,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeatIteration": 1601547724304,
+      "repeatPanelId": 31,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "friendly_name": {
+          "selected": false,
+          "text": "Sonoff Pow R2 Power",
+          "value": "Sonoff Pow R2 Power"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sensor_unit_w{friendly_name=~\"$friendly_name\"}",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{friendly_name}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "$friendly_name",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -2079,6 +3038,7 @@
         "allValue": null,
         "current": {
           "selected": true,
+          "tags": [],
           "text": [
             "All"
           ],
@@ -2087,14 +3047,14 @@
           ]
         },
         "datasource": "Prometheus",
-        "definition": "label_values(power_w{entity=~\"sensor.sonoff.*\"}, friendly_name)",
+        "definition": "label_values(sensor_unit_w{}, friendly_name)",
         "hide": 0,
         "includeAll": true,
         "label": null,
         "multi": true,
-        "name": "sonoffFriendlyName",
+        "name": "friendly_name",
         "options": [],
-        "query": "label_values(power_w{entity=~\"sensor.sonoff.*\"}, friendly_name)",
+        "query": "label_values(sensor_unit_w{}, friendly_name)",
         "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
@@ -2108,7 +3068,7 @@
     ]
   },
   "time": {
-    "from": "now-2d",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {
