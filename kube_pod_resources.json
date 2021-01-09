@@ -15,14 +15,20 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 9,
-  "iteration": 1551822538884,
+  "id": 5,
+  "iteration": 1610199654423,
   "links": [],
   "panels": [
     {
       "columns": [],
       "datasource": "Prometheus",
       "description": "Over provisioned containers in regards to CPU",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fontSize": "100%",
       "gridPos": {
         "h": 12,
@@ -42,6 +48,7 @@
       "styles": [
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -57,6 +64,7 @@
         },
         {
           "alias": "",
+          "align": "auto",
           "colorMode": "cell",
           "colors": [
             "rgba(50, 172, 45, 0.97)",
@@ -66,8 +74,8 @@
           "decimals": 2,
           "pattern": "Value",
           "thresholds": [
-            "0.1",
-            "0.2"
+            "0.25",
+            "0.5"
           ],
           "type": "number",
           "unit": "none"
@@ -75,24 +83,32 @@
       ],
       "targets": [
         {
-          "expr": "topk(10,\n  avg(\n    sum(kube_pod_container_resource_requests_cpu_cores{namespace=~\"^$namespace$\"}) by (namespace, pod, container) -\n    sum(label_replace(label_replace(rate(container_cpu_usage_seconds_total{namespace=~\"^$namespace$\"} [5m]),\n      \"pod\", \"$1\", \"pod_name\", \"(.*)\"),\n      \"container\", \"$1\", \"container_name\", \"(.*)\")\n    ) by (namespace, pod, container)\n  ) by (namespace, pod, container)\n)",
+          "expr": "topk(16,\n  sum(kube_pod_container_resource_requests_cpu_cores{namespace=~\"^$namespace$\"}) by (namespace, pod, container) -\n  sum(rate(container_cpu_usage_seconds_total{image!=\"\",name=~\"^k8s_.*\",namespace=~\"^$namespace$\"} [5m])) by (namespace, pod, container)\n)",
           "format": "table",
           "hide": false,
-          "interval": "10m",
+          "instant": true,
+          "interval": "",
           "intervalFactor": 2,
+          "legendFormat": "",
           "refId": "A",
           "step": 600
         }
       ],
       "timeFrom": "5m",
-      "title": "CPU Over",
+      "title": "CPU over-provisioned (requests too high)",
       "transform": "table",
-      "type": "table"
+      "type": "table-old"
     },
     {
       "columns": [],
       "datasource": "Prometheus",
       "description": "Under provisioned containers in regards to CPU",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fontSize": "100%",
       "gridPos": {
         "h": 12,
@@ -112,6 +128,7 @@
       "styles": [
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -127,6 +144,7 @@
         },
         {
           "alias": "",
+          "align": "auto",
           "colorMode": "cell",
           "colors": [
             "rgba(50, 172, 45, 0.97)",
@@ -136,8 +154,8 @@
           "decimals": 2,
           "pattern": "Value",
           "thresholds": [
-            "0.1",
-            "0.2"
+            "0.25",
+            "0.5"
           ],
           "type": "number",
           "unit": "none"
@@ -145,23 +163,31 @@
       ],
       "targets": [
         {
-          "expr": "topk(10,\n  avg(\n    sum(label_replace(label_replace(rate(container_cpu_usage_seconds_total{namespace=~\"^$namespace$\"} [5m]),\n      \"pod\", \"$1\", \"pod_name\", \"(.*)\"),\n      \"container\", \"$1\", \"container_name\", \"(.*)\")\n    ) by (namespace, pod, container) -\n    sum(kube_pod_container_resource_requests_cpu_cores{namespace=~\"^$namespace$\"}) by (namespace, pod, container)\n  ) by (namespace, pod, container)\n)",
+          "expr": "topk(16,\n  (\n    sum(rate(container_cpu_usage_seconds_total{image!=\"\",name=~\"^k8s_.*\",namespace=~\"^$namespace$\"} [5m])) by (namespace, pod, container) -\n    sum(kube_pod_container_resource_requests_cpu_cores{namespace=~\"^$namespace$\"}) by (namespace, pod, container)\n  )\n  or\n  sum(rate(container_cpu_usage_seconds_total{image!=\"\",name=~\"^k8s_.*\",namespace=~\"^$namespace$\"} [5m])) by (namespace, pod, container)\n)",
           "format": "table",
+          "instant": true,
           "interval": "10m",
           "intervalFactor": 2,
+          "legendFormat": "",
           "refId": "A",
           "step": 600
         }
       ],
       "timeFrom": "5m",
-      "title": "CPU Under",
+      "title": "CPU under-provisioned (requests too low)",
       "transform": "table",
-      "type": "table"
+      "type": "table-old"
     },
     {
       "columns": [],
       "datasource": "Prometheus",
       "description": "Over provisioned containers in regards to Memory",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fontSize": "100%",
       "gridPos": {
         "h": 12,
@@ -181,6 +207,7 @@
       "styles": [
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -196,6 +223,7 @@
         },
         {
           "alias": "",
+          "align": "auto",
           "colorMode": "cell",
           "colors": [
             "rgba(50, 172, 45, 0.97)",
@@ -205,8 +233,8 @@
           "decimals": 2,
           "pattern": "Value",
           "thresholds": [
-            "1000000",
-            "500000000"
+            "500000000",
+            "1000000000"
           ],
           "type": "number",
           "unit": "decbytes"
@@ -214,23 +242,31 @@
       ],
       "targets": [
         {
-          "expr": "topk(10,\n  avg(\n    sum(kube_pod_container_resource_requests_memory_bytes{namespace=~\"^$namespace$\"}) by (namespace, pod, container) -\n    sum(label_replace(label_replace(container_memory_usage_bytes{namespace=~\"^$namespace$\"},\n      \"pod\", \"$1\", \"pod_name\", \"(.*)\"),\n      \"container\", \"$1\", \"container_name\", \"(.*)\")\n     ) by (namespace, pod, container)\n  ) by (namespace, pod, container)\n)",
+          "expr": "topk(16,\n  sum(kube_pod_container_resource_requests_memory_bytes{namespace=~\"^$namespace$\"}) by (namespace, pod, container) -\n  sum(container_memory_working_set_bytes{image!=\"\",name=~\"^k8s_.*\",namespace=~\"^$namespace$\"}) by (namespace, pod, container)\n)",
           "format": "table",
+          "instant": true,
           "interval": "10m",
           "intervalFactor": 2,
+          "legendFormat": "",
           "refId": "A",
           "step": 600
         }
       ],
       "timeFrom": "5m",
-      "title": "Memory Over",
+      "title": "Memory over-provisioned (requests too high)",
       "transform": "table",
-      "type": "table"
+      "type": "table-old"
     },
     {
       "columns": [],
       "datasource": "Prometheus",
       "description": "Under provisioned containers in regards to Memory",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fontSize": "100%",
       "gridPos": {
         "h": 12,
@@ -250,6 +286,7 @@
       "styles": [
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -265,6 +302,7 @@
         },
         {
           "alias": "",
+          "align": "auto",
           "colorMode": "cell",
           "colors": [
             "rgba(50, 172, 45, 0.97)",
@@ -274,8 +312,8 @@
           "decimals": 2,
           "pattern": "Value",
           "thresholds": [
-            "10000000",
-            "500000000"
+            "500000000",
+            "1000000000"
           ],
           "type": "number",
           "unit": "decbytes"
@@ -283,34 +321,44 @@
       ],
       "targets": [
         {
-          "expr": "topk(10,\n  avg(\n    sum(label_replace(label_replace(container_memory_usage_bytes{namespace=~\"^$namespace$\"},\n      \"pod\", \"$1\", \"pod_name\", \"(.*)\"),\n      \"container\", \"$1\", \"container_name\", \"(.*)\")\n     ) by (namespace, pod, container)\n  ) by (namespace, pod, container) -\n  sum(kube_pod_container_resource_requests_memory_bytes{namespace=~\"^$namespace$\"}) by (namespace, pod, container)\n)",
+          "expr": "topk(16,\n  (\n    sum(container_memory_working_set_bytes{image!=\"\",name=~\"^k8s_.*\",namespace=~\"^$namespace$\"}) by (namespace, pod, container) - \n    sum(kube_pod_container_resource_requests_memory_bytes{namespace=~\"^$namespace$\"}) by (namespace, pod, container)\n  )\n  or\n  sum(container_memory_working_set_bytes{image!=\"\",name=~\"^k8s_.*\",namespace=~\"^$namespace$\"}) by (namespace, pod, container) \n)",
           "format": "table",
+          "instant": true,
           "interval": "10m",
           "intervalFactor": 2,
+          "legendFormat": "",
           "refId": "A",
           "step": 600
         }
       ],
       "timeFrom": "5m",
-      "title": "Memory Under",
+      "title": "Memory under-provisioned (requests too low)",
       "transform": "table",
-      "type": "table"
+      "type": "table-old"
     }
   ],
-  "refresh": "1m",
-  "schemaVersion": 18,
+  "schemaVersion": 26,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "kubernetes",
+    "system"
+  ],
   "templating": {
     "list": [
       {
         "allValue": null,
         "current": {
-          "text": "All",
-          "value": "$__all"
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
         },
         "datasource": "Prometheus",
         "definition": "",
+        "error": null,
         "hide": 0,
         "includeAll": true,
         "label": "Namespace",
@@ -331,7 +379,7 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
@@ -360,7 +408,7 @@
     ]
   },
   "timezone": "",
-  "title": "kube pod resources",
+  "title": "kube resources",
   "uid": "SAY0wIcik",
   "version": 1
 }

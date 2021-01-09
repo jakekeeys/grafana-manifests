@@ -12,12 +12,11 @@
       }
     ]
   },
-  "description": "Kubernetes Ingress Traffic",
   "editable": true,
   "gnetId": null,
-  "graphTooltip": 1,
-  "id": 44,
-  "iteration": 1610199545163,
+  "graphTooltip": 0,
+  "id": 93,
+  "iteration": 1610199907072,
   "links": [],
   "panels": [
     {
@@ -32,27 +31,31 @@
         },
         "overrides": []
       },
-      "fill": 1,
+      "fill": 0,
       "fillGradient": 0,
       "gridPos": {
-        "h": 10,
-        "w": 8,
+        "h": 7,
+        "w": 24,
         "x": 0,
         "y": 0
       },
       "hiddenSeries": false,
-      "id": 4,
+      "id": 3,
       "legend": {
+        "alignAsTable": true,
         "avg": false,
-        "current": false,
+        "current": true,
         "max": false,
         "min": false,
-        "show": false,
+        "rightSide": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": false,
         "total": false,
-        "values": false
+        "values": true
       },
       "lines": true,
-      "linewidth": 1,
+      "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
       "options": {
@@ -69,108 +72,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(traefik_backend_request_duration_seconds_count{backend = \"$backend\"}[5m]))",
-          "format": "time_series",
-          "intervalFactor": 2,
-          "legendFormat": "rps",
-          "refId": "A",
-          "step": 60
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "RPS [5m]",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 10,
-        "w": 8,
-        "x": 8,
-        "y": 0
-      },
-      "hiddenSeries": false,
-      "id": 6,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "connected",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.6",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "sum(rate(traefik_backend_requests_total{backend = \"$backend\"}[5m])) by (code)",
+          "expr": "kubelet_volume_stats_available_bytes{namespace=~\"$namespace\",persistentvolumeclaim=~\"$claim\"} / kubelet_volume_stats_capacity_bytes{namespace=~\"$namespace\",persistentvolumeclaim=~\"$claim\"}",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{code}}",
+          "legendFormat": "{{persistentvolumeclaim}}",
           "refId": "A"
         }
       ],
@@ -178,7 +83,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Response codes [5m]",
+      "title": "Percent Available",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -194,7 +99,7 @@
       },
       "yaxes": [
         {
-          "format": "short",
+          "format": "percentunit",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -227,29 +132,31 @@
         },
         "overrides": []
       },
-      "fill": 1,
+      "fill": 0,
       "fillGradient": 0,
       "gridPos": {
-        "h": 10,
-        "w": 8,
-        "x": 16,
-        "y": 0
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 7
       },
       "hiddenSeries": false,
-      "id": 1,
+      "id": 2,
       "legend": {
-        "alignAsTable": false,
+        "alignAsTable": true,
         "avg": false,
-        "current": false,
+        "current": true,
         "max": false,
         "min": false,
-        "rightSide": false,
-        "show": false,
+        "rightSide": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
         "total": false,
-        "values": false
+        "values": true
       },
       "lines": true,
-      "linewidth": 1,
+      "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
       "options": {
@@ -266,43 +173,18 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.75, sum(rate(traefik_backend_request_duration_seconds_bucket{backend = \"$backend\"}[5m])) by (le))",
-          "format": "time_series",
-          "interval": "",
-          "intervalFactor": 2,
-          "legendFormat": "75%",
-          "refId": "A",
-          "step": 30
-        },
-        {
-          "expr": "histogram_quantile(0.90, sum(rate(traefik_backend_request_duration_seconds_bucket{backend = \"$backend\"}[5m])) by (le))",
-          "format": "time_series",
-          "intervalFactor": 2,
-          "legendFormat": "90%",
-          "refId": "B",
-          "step": 30
-        },
-        {
-          "expr": "histogram_quantile(0.99, sum(rate(traefik_backend_request_duration_seconds_bucket{backend = \"$backend\"}[5m])) by (le))",
-          "format": "time_series",
-          "intervalFactor": 2,
-          "legendFormat": "99%",
-          "refId": "C",
-          "step": 30
-        },
-        {
-          "expr": "histogram_quantile(0.999, sum(rate(traefik_backend_request_duration_seconds_bucket{backend = \"$backend\"}[5m])) by (le))",
+          "expr": "1 - (kubelet_volume_stats_available_bytes{namespace=~\"$namespace\",persistentvolumeclaim=~\"$claim\"} / kubelet_volume_stats_capacity_bytes{namespace=~\"$namespace\",persistentvolumeclaim=~\"$claim\"})",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "99.9%",
-          "refId": "E"
+          "legendFormat": "{{persistentvolumeclaim}}",
+          "refId": "A"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Request duration [5m]",
+      "title": "Percent Used",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -318,7 +200,7 @@
       },
       "yaxes": [
         {
-          "format": "s",
+          "format": "percentunit",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -344,36 +226,40 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {}
         },
         "overrides": []
       },
-      "fill": 1,
+      "fill": 0,
       "fillGradient": 0,
       "gridPos": {
-        "h": 10,
+        "h": 9,
         "w": 8,
         "x": 0,
-        "y": 10
+        "y": 14
       },
       "hiddenSeries": false,
-      "id": 8,
+      "id": 4,
       "legend": {
+        "alignAsTable": true,
         "avg": false,
-        "current": false,
+        "current": true,
         "max": false,
         "min": false,
+        "rightSide": false,
         "show": true,
+        "sort": "current",
+        "sortDesc": false,
         "total": false,
-        "values": false
+        "values": true
       },
       "lines": true,
-      "linewidth": 1,
+      "linewidth": 2,
       "links": [],
-      "nullPointMode": "null",
+      "nullPointMode": "connected",
       "options": {
         "alertThreshold": true
       },
@@ -388,10 +274,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(traefik_backend_request_duration_seconds_count{backend = \"$backend\"}[5m])) by (instance)",
+          "expr": "kubelet_volume_stats_available_bytes{namespace=~\"$namespace\",persistentvolumeclaim=~\"$claim\"}",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{persistentvolumeclaim}}",
           "refId": "A"
         }
       ],
@@ -399,7 +285,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "RPS by instance [5m]",
+      "title": "Available Bytes",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -415,7 +301,7 @@
       },
       "yaxes": [
         {
-          "format": "short",
+          "format": "bytes",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -441,36 +327,40 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {}
         },
         "overrides": []
       },
-      "fill": 1,
+      "fill": 0,
       "fillGradient": 0,
       "gridPos": {
-        "h": 10,
+        "h": 9,
         "w": 8,
         "x": 8,
-        "y": 10
+        "y": 14
       },
       "hiddenSeries": false,
-      "id": 9,
+      "id": 6,
       "legend": {
+        "alignAsTable": true,
         "avg": false,
-        "current": false,
+        "current": true,
         "max": false,
         "min": false,
+        "rightSide": false,
         "show": true,
+        "sort": null,
+        "sortDesc": null,
         "total": false,
-        "values": false
+        "values": true
       },
       "lines": true,
-      "linewidth": 1,
+      "linewidth": 2,
       "links": [],
-      "nullPointMode": "null as zero",
+      "nullPointMode": "connected",
       "options": {
         "alertThreshold": true
       },
@@ -485,10 +375,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(traefik_backend_requests_total{code =~ \"[45][0-9][0-9]\", backend = \"$backend\"}[5m])) by (instance,code)",
+          "expr": "kubelet_volume_stats_capacity_bytes{namespace=~\"$namespace\",persistentvolumeclaim=~\"$claim\"}",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}} - {{code}}",
+          "legendFormat": "{{persistentvolumeclaim}}",
           "refId": "A"
         }
       ],
@@ -496,7 +386,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Errors per second by instance [5m]",
+      "title": "Capacity Bytes",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -512,7 +402,108 @@
       },
       "yaxes": [
         {
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
           "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 14
+      },
+      "hiddenSeries": false,
+      "id": 5,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.6",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "kubelet_volume_stats_used_bytes{namespace=~\"$namespace\",persistentvolumeclaim=~\"$claim\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{persistentvolumeclaim}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Used Bytes",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -534,37 +525,72 @@
       }
     }
   ],
-  "refresh": false,
+  "refresh": "30s",
+  "revision": null,
   "schemaVersion": 26,
   "style": "dark",
   "tags": [
-    "system",
     "kubernetes",
-    "ingress"
+    "system"
   ],
   "templating": {
     "list": [
       {
         "allValue": null,
         "current": {
-          "selected": false,
-          "text": "100-uw.je/partner/portal/booking/api",
-          "value": "100-uw.je/partner/portal/booking/api"
+          "selected": true,
+          "text": [
+            "telecom"
+          ],
+          "value": [
+            "telecom"
+          ]
         },
         "datasource": "Prometheus",
         "definition": "",
         "error": null,
         "hide": 0,
-        "includeAll": false,
-        "label": null,
-        "multi": false,
-        "name": "backend",
+        "includeAll": true,
+        "label": "namespace",
+        "multi": true,
+        "name": "namespace",
         "options": [],
-        "query": "label_values(traefik_backend_requests_total, backend)",
+        "query": "label_values(kubernetes_namespace)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 1,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": "Prometheus",
+        "definition": "",
+        "error": null,
+        "hide": 0,
+        "includeAll": true,
+        "label": "claim",
+        "multi": true,
+        "name": "claim",
+        "options": [],
+        "query": "label_values(kubelet_volume_stats_capacity_bytes{namespace=~\"$namespace\"}, persistentvolumeclaim)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -574,7 +600,7 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {
@@ -602,8 +628,8 @@
       "30d"
     ]
   },
-  "timezone": "browser",
-  "title": "kube ingress",
-  "uid": "Su3vPHoiz",
+  "timezone": "",
+  "title": "kube volumes",
+  "uid": "1HRDycZiz",
   "version": 1
 }

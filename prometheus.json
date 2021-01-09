@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 9,
+  "id": 38,
   "links": [
     {
       "icon": "info",
@@ -47,14 +47,22 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
-        "h": 5,
+        "h": 6,
         "w": 6,
         "x": 0,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 3,
       "legend": {
         "avg": false,
@@ -69,8 +77,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "connected",
-      "paceLength": 10,
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -80,7 +91,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(irate(prometheus_tsdb_head_samples_appended_total{kubernetes_name=\"prometheus\"}[5m]))",
+          "expr": "sum(irate(prometheus_tsdb_head_samples_appended_total{job=\"prometheus\"}[5m]))",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -138,14 +149,22 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
-        "h": 5,
+        "h": 6,
         "w": 6,
         "x": 6,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 14,
       "legend": {
         "avg": false,
@@ -160,8 +179,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "connected",
-      "paceLength": 10,
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -227,13 +249,21 @@
       "dashes": false,
       "datasource": "Prometheus",
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 5,
+        "h": 6,
         "w": 6,
         "x": 12,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 16,
       "legend": {
         "avg": false,
@@ -248,8 +278,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "paceLength": 10,
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -259,7 +292,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(process_resident_memory_bytes{kubernetes_name=\"prometheus\"})",
+          "expr": "sum(process_resident_memory_bytes{job=\"prometheus\"})",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -269,7 +302,7 @@
           "step": 20
         },
         {
-          "expr": "process_virtual_memory_bytes{kubernetes_name=\"prometheus\"}",
+          "expr": "process_virtual_memory_bytes{job=\"prometheus\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -329,6 +362,12 @@
         "rgba(245, 54, 54, 0.9)"
       ],
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -338,7 +377,7 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 5,
+        "h": 6,
         "w": 6,
         "x": 18,
         "y": 0
@@ -380,7 +419,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "tsdb_wal_corruptions_total{kubernetes_name=\"prometheus\"}",
+          "expr": "tsdb_wal_corruptions_total{job=\"prometheus\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "",
@@ -407,13 +446,21 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 5,
+        "h": 6,
         "w": 6,
         "x": 0,
-        "y": 5
+        "y": 6
       },
+      "hiddenSeries": false,
       "id": 29,
       "legend": {
         "avg": false,
@@ -428,8 +475,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "paceLength": 10,
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -439,7 +489,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(prometheus_tsdb_head_active_appenders{kubernetes_name=\"prometheus\"})",
+          "expr": "sum(prometheus_tsdb_head_active_appenders{job=\"prometheus\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -449,7 +499,7 @@
           "step": 20
         },
         {
-          "expr": "sum(process_open_fds{kubernetes_name=\"prometheus\"})",
+          "expr": "sum(process_open_fds{job=\"prometheus\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -510,14 +560,22 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
-        "h": 5,
+        "h": 6,
         "w": 6,
         "x": 6,
-        "y": 5
+        "y": 6
       },
+      "hiddenSeries": false,
       "id": 2,
       "legend": {
         "avg": false,
@@ -532,8 +590,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "connected",
-      "paceLength": 10,
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -543,7 +604,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "prometheus_tsdb_blocks_loaded{kubernetes_name=\"prometheus\"}",
+          "expr": "prometheus_tsdb_blocks_loaded{job=\"prometheus\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "blocks",
@@ -598,13 +659,21 @@
       "datasource": "Prometheus",
       "decimals": null,
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 5,
+        "h": 6,
         "w": 6,
         "x": 12,
-        "y": 5
+        "y": 6
       },
+      "hiddenSeries": false,
       "id": 33,
       "legend": {
         "avg": false,
@@ -619,8 +688,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "connected",
-      "paceLength": 10,
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -630,7 +702,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "prometheus_tsdb_head_chunks{kubernetes_name=\"prometheus\"}",
+          "expr": "prometheus_tsdb_head_chunks{job=\"prometheus\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -686,13 +758,21 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 5,
+        "h": 6,
         "w": 6,
         "x": 18,
-        "y": 5
+        "y": 6
       },
+      "hiddenSeries": false,
       "id": 36,
       "legend": {
         "avg": false,
@@ -707,8 +787,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "paceLength": 10,
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -723,7 +806,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "prometheus_tsdb_head_gc_duration_seconds{kubernetes_name=\"prometheus\",quantile=\"0.99\"}",
+          "expr": "prometheus_tsdb_head_gc_duration_seconds{job=\"prometheus\",quantile=\"0.99\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "duration-p99",
@@ -731,7 +814,7 @@
           "step": 20
         },
         {
-          "expr": "irate(prometheus_tsdb_head_gc_duration_seconds_count{kubernetes_name=\"prometheus\"}[5m])",
+          "expr": "irate(prometheus_tsdb_head_gc_duration_seconds_count{job=\"prometheus\"}[5m])",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "collections",
@@ -788,13 +871,21 @@
       "datasource": "Prometheus",
       "decimals": null,
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 5,
+        "h": 6,
         "w": 8,
         "x": 0,
-        "y": 10
+        "y": 12
       },
+      "hiddenSeries": false,
       "id": 20,
       "legend": {
         "avg": false,
@@ -809,8 +900,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "connected",
-      "paceLength": 10,
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -825,7 +919,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.99, sum(rate(prometheus_tsdb_compaction_duration_bucket{kubernetes_name=\"prometheus\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.99, sum(rate(prometheus_tsdb_compaction_duration_bucket{job=\"prometheus\"}[5m])) by (le))",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -835,7 +929,7 @@
           "step": 20
         },
         {
-          "expr": "irate(prometheus_tsdb_compactions_total{kubernetes_name=\"prometheus\"}[5m])",
+          "expr": "irate(prometheus_tsdb_compactions_total{job=\"prometheus\"}[5m])",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "compactions",
@@ -843,7 +937,7 @@
           "step": 20
         },
         {
-          "expr": "irate(prometheus_tsdb_compactions_failed_total{kubernetes_name=\"prometheus\"}[5m])",
+          "expr": "irate(prometheus_tsdb_compactions_failed_total{job=\"prometheus\"}[5m])",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "failed",
@@ -851,7 +945,7 @@
           "step": 20
         },
         {
-          "expr": "irate(prometheus_tsdb_compactions_triggered_total{kubernetes_name=\"prometheus\"}[5m])",
+          "expr": "irate(prometheus_tsdb_compactions_triggered_total{job=\"prometheus\"}[5m])",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "triggered",
@@ -906,13 +1000,21 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 5,
+        "h": 6,
         "w": 8,
         "x": 8,
-        "y": 10
+        "y": 12
       },
+      "hiddenSeries": false,
       "id": 32,
       "legend": {
         "avg": false,
@@ -927,8 +1029,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "paceLength": 10,
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -938,7 +1043,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(prometheus_tsdb_reloads_total{kubernetes_name=\"prometheus\"}[5m])",
+          "expr": "rate(prometheus_tsdb_reloads_total{job=\"prometheus\"}[5m])",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "reloads",
@@ -946,7 +1051,7 @@
           "step": 20
         },
         {
-          "expr": "rate(prometheus_tsdb_reloads_failures_total{kubernetes_name=\"prometheus\"}[5m])",
+          "expr": "rate(prometheus_tsdb_reloads_failures_total{job=\"prometheus\"}[5m])",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -1002,13 +1107,21 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 5,
+        "h": 6,
         "w": 8,
         "x": 16,
-        "y": 10
+        "y": 12
       },
+      "hiddenSeries": false,
       "id": 38,
       "legend": {
         "avg": false,
@@ -1023,8 +1136,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "paceLength": 10,
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1034,7 +1150,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "prometheus_engine_query_duration_seconds{kubernetes_name=\"prometheus\", quantile=\"0.99\"}",
+          "expr": "prometheus_engine_query_duration_seconds{job=\"prometheus\", quantile=\"0.99\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{slice}}_p99",
@@ -1092,14 +1208,22 @@
       "decimals": null,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 15
+        "y": 18
       },
+      "hiddenSeries": false,
       "id": 35,
       "legend": {
         "alignAsTable": false,
@@ -1116,8 +1240,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "connected",
-      "paceLength": 10,
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1127,7 +1254,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "max(prometheus_evaluator_duration_seconds{kubernetes_name=\"prometheus\", quantile!=\"0.01\", quantile!=\"0.05\"}) by (quantile)",
+          "expr": "max(prometheus_evaluator_duration_seconds{job=\"prometheus\", quantile!=\"0.01\", quantile!=\"0.05\"}) by (quantile)",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -1182,13 +1309,21 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 15
+        "y": 18
       },
+      "hiddenSeries": false,
       "id": 39,
       "legend": {
         "avg": false,
@@ -1203,8 +1338,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "paceLength": 10,
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1214,7 +1352,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(prometheus_evaluator_iterations_missed_total{kubernetes_name=\"prometheus\"}[5m])",
+          "expr": "rate(prometheus_evaluator_iterations_missed_total{job=\"prometheus\"}[5m])",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "missed",
@@ -1222,7 +1360,7 @@
           "step": 10
         },
         {
-          "expr": "rate(prometheus_evaluator_iterations_skipped_total{kubernetes_name=\"prometheus\"}[5m])",
+          "expr": "rate(prometheus_evaluator_iterations_skipped_total{job=\"prometheus\"}[5m])",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "skipped",
@@ -1230,7 +1368,7 @@
           "step": 10
         },
         {
-          "expr": "rate(prometheus_evaluator_iterations_total{kubernetes_name=\"prometheus\"}[5m])",
+          "expr": "rate(prometheus_evaluator_iterations_total{job=\"prometheus\"}[5m])",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "iterations",
@@ -1280,16 +1418,17 @@
       }
     }
   ],
-  "refresh": "1m",
   "revision": "1.0",
-  "schemaVersion": 18,
+  "schemaVersion": 26,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "prometheus"
+  ],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {
@@ -1320,6 +1459,6 @@
   },
   "timezone": "browser",
   "title": "prometheus",
-  "uid": "9yIhZ3Emk",
+  "uid": "sLOop63mz",
   "version": 1
 }

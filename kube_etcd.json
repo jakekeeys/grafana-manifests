@@ -12,11 +12,11 @@
       }
     ]
   },
-  "description": "",
+  "description": "Kubernetes etcd metics",
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 15,
+  "id": 94,
   "links": [],
   "panels": [
     {
@@ -31,6 +31,12 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -62,7 +68,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -83,7 +88,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(etcd_server_has_leader{job=\"kubernetes-etcd\"})",
+          "expr": "sum(etcd_server_has_leader{job=\"etcd\"})",
           "intervalFactor": 2,
           "legendFormat": "",
           "metric": "etcd_server_has_leader",
@@ -113,6 +118,12 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
@@ -121,6 +132,7 @@
         "x": 6,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 23,
       "legend": {
         "avg": false,
@@ -136,9 +148,10 @@
       "links": [],
       "nullPointMode": "connected",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -148,7 +161,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(grpc_server_started_total{job=\"kubernetes-etcd\",grpc_type=\"unary\",grpc_code!=\"OK\"} [5m]))",
+          "expr": "sum(rate(grpc_server_started_total{job=\"etcd\",grpc_type=\"unary\",grpc_code!=\"OK\"} [5m]))",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} RPC Rate",
@@ -157,7 +170,7 @@
           "step": 120
         },
         {
-          "expr": "sum(rate(grpc_server_started_total{job=\"kubernetes-etcd\",grpc_type=\"unary\",grpc_code!=\"OK\"} [5m])) - sum(rate(grpc_server_handled_total{job=\"kubernetes-etcd\",grpc_type=\"unary\"} [5m]))",
+          "expr": "sum(rate(grpc_server_started_total{job=\"etcd\",grpc_type=\"unary\",grpc_code!=\"OK\"} [5m])) - sum(rate(grpc_server_handled_total{job=\"etcd\",grpc_type=\"unary\"} [5m]))",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} RPC Failed Rate",
@@ -216,6 +229,12 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
@@ -224,6 +243,7 @@
         "x": 16,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 41,
       "legend": {
         "avg": false,
@@ -239,9 +259,10 @@
       "links": [],
       "nullPointMode": "connected",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -251,7 +272,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(grpc_server_started_total {job=\"kubernetes-etcd\",grpc_service=\"etcdserverpb.Watch\",grpc_type=\"bidi_stream\",grpc_code!=\"OK\"}) - sum(grpc_server_handled_total {job=\"kubernetes-etcd\",grpc_service=\"etcdserverpb.Watch\",grpc_type=\"bidi_stream\"})",
+          "expr": "sum(grpc_server_started_total {job=\"etcd\",grpc_service=\"etcdserverpb.Watch\",grpc_type=\"bidi_stream\",grpc_code!=\"OK\"}) - sum(grpc_server_handled_total {job=\"etcd\",grpc_service=\"etcdserverpb.Watch\",grpc_type=\"bidi_stream\"})",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "Watch Streams",
@@ -260,7 +281,7 @@
           "step": 120
         },
         {
-          "expr": "sum(grpc_server_started_total {job=\"kubernetes-etcd\",grpc_service=\"etcdserverpb.Lease\",grpc_type=\"bidi_stream\"}) - sum(grpc_server_handled_total {job=\"kubernetes-etcd\",grpc_service=\"etcdserverpb.Lease\",grpc_type=\"bidi_stream\"})",
+          "expr": "sum(grpc_server_started_total {job=\"etcd\",grpc_service=\"etcdserverpb.Lease\",grpc_type=\"bidi_stream\"}) - sum(grpc_server_handled_total {job=\"etcd\",grpc_service=\"etcdserverpb.Lease\",grpc_type=\"bidi_stream\"})",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "Lease Streams",
@@ -320,6 +341,12 @@
       "decimals": null,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "grid": {},
@@ -329,6 +356,7 @@
         "x": 0,
         "y": 7
       },
+      "hiddenSeries": false,
       "id": 1,
       "legend": {
         "avg": false,
@@ -344,9 +372,10 @@
       "links": [],
       "nullPointMode": "connected",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -356,7 +385,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "etcd_debugging_mvcc_db_total_size_in_bytes{job=\"kubernetes-etcd\"}",
+          "expr": "etcd_debugging_mvcc_db_total_size_in_bytes{job=\"etcd\"}",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -415,6 +444,12 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "grid": {},
@@ -424,6 +459,7 @@
         "x": 8,
         "y": 7
       },
+      "hiddenSeries": false,
       "id": 3,
       "legend": {
         "avg": false,
@@ -439,9 +475,10 @@
       "links": [],
       "nullPointMode": "connected",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 1,
       "points": false,
       "renderer": "flot",
@@ -451,7 +488,7 @@
       "steppedLine": true,
       "targets": [
         {
-          "expr": "histogram_quantile(0.99, sum(rate(etcd_disk_wal_fsync_duration_seconds_bucket{job=\"kubernetes-etcd\"} [5m])) by (instance, le))",
+          "expr": "histogram_quantile(0.99, sum(rate(etcd_disk_wal_fsync_duration_seconds_bucket{job=\"etcd\"} [5m])) by (instance, le))",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -461,7 +498,7 @@
           "step": 120
         },
         {
-          "expr": "histogram_quantile(0.99, sum(rate(etcd_disk_backend_commit_duration_seconds_bucket{job=\"kubernetes-etcd\"} [5m])) by (instance, le))",
+          "expr": "histogram_quantile(0.99, sum(rate(etcd_disk_backend_commit_duration_seconds_bucket{job=\"etcd\"} [5m])) by (instance, le))",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} DB fsync",
@@ -518,6 +555,12 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
@@ -526,6 +569,7 @@
         "x": 16,
         "y": 7
       },
+      "hiddenSeries": false,
       "id": 29,
       "legend": {
         "avg": false,
@@ -541,9 +585,10 @@
       "links": [],
       "nullPointMode": "connected",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -553,7 +598,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "process_resident_memory_bytes{job=\"kubernetes-etcd\"}",
+          "expr": "process_resident_memory_bytes{job=\"etcd\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} Resident Memory",
@@ -612,6 +657,12 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 5,
       "fillGradient": 0,
       "gridPos": {
@@ -620,6 +671,7 @@
         "x": 0,
         "y": 14
       },
+      "hiddenSeries": false,
       "id": 22,
       "legend": {
         "avg": false,
@@ -635,9 +687,10 @@
       "links": [],
       "nullPointMode": "connected",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -647,7 +700,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(etcd_network_client_grpc_received_bytes_total{job=\"kubernetes-etcd\"} [5m])",
+          "expr": "rate(etcd_network_client_grpc_received_bytes_total{job=\"etcd\"} [5m])",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} Client Traffic In",
@@ -706,6 +759,12 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 5,
       "fillGradient": 0,
       "gridPos": {
@@ -714,6 +773,7 @@
         "x": 6,
         "y": 14
       },
+      "hiddenSeries": false,
       "id": 21,
       "legend": {
         "avg": false,
@@ -729,9 +789,10 @@
       "links": [],
       "nullPointMode": "connected",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -741,7 +802,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(etcd_network_client_grpc_sent_bytes_total{job=\"kubernetes-etcd\"} [5m])",
+          "expr": "rate(etcd_network_client_grpc_sent_bytes_total{job=\"etcd\"} [5m])",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} Client Traffic Out",
@@ -800,6 +861,12 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
@@ -808,6 +875,7 @@
         "x": 12,
         "y": 14
       },
+      "hiddenSeries": false,
       "id": 20,
       "legend": {
         "avg": false,
@@ -823,9 +891,10 @@
       "links": [],
       "nullPointMode": "connected",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -835,7 +904,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(etcd_network_peer_received_bytes_total{job=\"kubernetes-etcd\"} [5m])) by (instance)",
+          "expr": "sum(rate(etcd_network_peer_received_bytes_total{job=\"etcd\"} [5m])) by (instance)",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} Peer Traffic In",
@@ -895,6 +964,12 @@
       "decimals": null,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "grid": {},
@@ -904,6 +979,7 @@
         "x": 18,
         "y": 14
       },
+      "hiddenSeries": false,
       "id": 16,
       "legend": {
         "avg": false,
@@ -919,9 +995,10 @@
       "links": [],
       "nullPointMode": "connected",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -931,7 +1008,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(etcd_network_peer_sent_bytes_total{job=\"kubernetes-etcd\"} [5m])) by (instance)",
+          "expr": "sum(rate(etcd_network_peer_sent_bytes_total{job=\"etcd\"} [5m])) by (instance)",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -988,15 +1065,510 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
-      "editable": true,
-      "error": false,
-      "fill": 0,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 0,
         "y": 21
       },
+      "hiddenSeries": false,
+      "id": 44,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.6",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum(rate(node_network_receive_bytes_total[5m])) by (instance) * on (instance) group_right(role) machine_role{role=\"etcd\"}",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{instance}}",
+          "refId": "A",
+          "step": 120
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Network RX by node",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 21
+      },
+      "hiddenSeries": false,
+      "id": 45,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.6",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum(rate(node_network_transmit_bytes_total[5m])) by (instance) * on (instance) group_right(role) machine_role{role=\"etcd\"}",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{instance}}",
+          "refId": "A",
+          "step": 120
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Network TX by node",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 28
+      },
+      "hiddenSeries": false,
+      "id": 42,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.6",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "100 - (avg by (instance) (irate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100) * on (instance) group_right(role) machine_role{role=\"etcd\"}",
+          "intervalFactor": 2,
+          "legendFormat": "{{instance}}",
+          "refId": "A",
+          "step": 120
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "CPU by node",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": "100",
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 28
+      },
+      "hiddenSeries": false,
+      "id": 43,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.6",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum(node_memory_MemAvailable_bytes) by (instance) * on (instance) group_right(role) machine_role{role=\"etcd\"}",
+          "intervalFactor": 2,
+          "legendFormat": "{{instance}}",
+          "refId": "A",
+          "step": 120
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Memory available by node",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 28
+      },
+      "hiddenSeries": false,
+      "id": 46,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.6",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "node_filesystem_free_bytes{job=\"etcd-nodes\", mountpoint=\"/var/lib/etcd\"}",
+          "intervalFactor": 2,
+          "legendFormat": "{{ instance }}",
+          "refId": "A",
+          "step": 120
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Free disk space by node",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 35
+      },
+      "hiddenSeries": false,
       "id": 40,
       "legend": {
         "avg": false,
@@ -1011,8 +1583,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {},
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1022,7 +1597,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(etcd_server_proposals_failed_total{job=\"kubernetes-etcd\"} [5m]))",
+          "expr": "sum(rate(etcd_server_proposals_failed_total{job=\"etcd\"} [5m]))",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "Proposal Failure Rate",
@@ -1031,7 +1606,7 @@
           "step": 120
         },
         {
-          "expr": "sum(etcd_server_proposals_pending{job=\"kubernetes-etcd\"})",
+          "expr": "sum(etcd_server_proposals_pending{job=\"etcd\"})",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "Proposal Pending Total",
@@ -1040,7 +1615,7 @@
           "step": 120
         },
         {
-          "expr": "sum(rate(etcd_server_proposals_committed_total{job=\"kubernetes-etcd\"} [5m]))",
+          "expr": "sum(rate(etcd_server_proposals_committed_total{job=\"etcd\"} [5m]))",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "Proposal Commit Rate",
@@ -1049,7 +1624,7 @@
           "step": 120
         },
         {
-          "expr": "sum(rate(etcd_server_proposals_applied_total{job=\"kubernetes-etcd\"} [5m]))",
+          "expr": "sum(rate(etcd_server_proposals_applied_total{job=\"etcd\"} [5m]))",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "Proposal Apply Rate",
@@ -1108,13 +1683,21 @@
       "decimals": 0,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
+      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 21
+        "y": 35
       },
+      "hiddenSeries": false,
       "id": 19,
       "legend": {
         "alignAsTable": false,
@@ -1131,8 +1714,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {},
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "7.3.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1142,7 +1728,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "etcd_server_leader_changes_seen_total{job=\"kubernetes-etcd\"}",
+          "expr": "etcd_server_leader_changes_seen_total{job=\"etcd\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} Leader Change Seen",
@@ -1195,9 +1781,13 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 18,
+  "schemaVersion": 26,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "system",
+    "kubernetes",
+    "etcd"
+  ],
   "templating": {
     "list": []
   },
@@ -1234,5 +1824,5 @@
   "timezone": "browser",
   "title": "kube etcd",
   "uid": "mYdnw3aik",
-  "version": 5
+  "version": 1
 }
