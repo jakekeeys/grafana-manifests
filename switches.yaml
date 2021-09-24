@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": 11169,
   "graphTooltip": 1,
-  "id": 51,
-  "iteration": 1623587178644,
+  "id": 97,
+  "iteration": 1632472101395,
   "links": [],
   "panels": [
     {
@@ -722,7 +722,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 16,
+        "h": 9,
         "w": 12,
         "x": 0,
         "y": 16
@@ -786,7 +786,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 16,
+        "h": 9,
         "w": 12,
         "x": 12,
         "y": 16
@@ -838,7 +838,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 32
+        "y": 25
       },
       "hiddenSeries": false,
       "id": 21,
@@ -941,7 +941,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "switches",
           "value": "switches"
         },
@@ -973,14 +973,7 @@
         "datasource": "Prometheus",
         "description": null,
         "error": null,
-        "filters": [
-          {
-            "condition": "",
-            "key": "instance",
-            "operator": "=",
-            "value": "garage-switch.yonsea.co.uk"
-          }
-        ],
+        "filters": [],
         "hide": 0,
         "label": null,
         "name": "Filters",
@@ -990,7 +983,7 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {
@@ -1010,5 +1003,5 @@
   "timezone": "",
   "title": "SNMP Stats",
   "uid": "7qKD6I1Wk",
-  "version": 1
+  "version": 3
 }
