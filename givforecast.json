@@ -73,7 +73,8 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "watt"
         },
         "overrides": []
       },
@@ -156,7 +157,8 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "watt"
         },
         "overrides": []
       },
@@ -235,6 +237,8 @@
             }
           },
           "mappings": [],
+          "max": 100,
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -247,7 +251,8 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "percent"
         },
         "overrides": [
           {
@@ -358,7 +363,8 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "watt"
         },
         "overrides": []
       },
@@ -447,7 +453,8 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "celsius"
         },
         "overrides": [
           {
@@ -507,7 +514,7 @@
           "refId": "C"
         }
       ],
-      "title": "Module SOC",
+      "title": "Temps",
       "type": "timeseries"
     },
     {
@@ -548,6 +555,8 @@
             }
           },
           "mappings": [],
+          "max": 100,
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -560,7 +569,8 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "percent"
         },
         "overrides": [
           {
@@ -612,7 +622,7 @@
           "refId": "B"
         }
       ],
-      "title": "Module SOC",
+      "title": "SOC",
       "type": "timeseries"
     },
     {
@@ -663,7 +673,8 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "amph"
         },
         "overrides": [
           {
