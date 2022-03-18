@@ -20,13 +20,11 @@
   },
   "editable": true,
   "fiscalYearStartMonth": 0,
-  "gnetId": null,
   "graphTooltip": 0,
   "links": [],
   "liveNow": false,
   "panels": [
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -99,18 +97,58 @@
       },
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
           "exemplar": true,
-          "expr": "homeassistant_sensor_power_w{entity=~\"sensor.givenergy.*\"}",
+          "expr": "(sum(homeassistant_sensor_power_w{entity=~\"sensor.givenergy_export\"}) * -1) + sum(homeassistant_sensor_power_w{entity=~\"sensor.givenergy_import\"})",
+          "hide": false,
           "interval": "",
-          "legendFormat": "{{friendly_name}}",
-          "refId": "A"
+          "legendFormat": "Grid",
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "homeassistant_sensor_power_w{entity=~\"sensor.givenergy_consumption\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Consumption",
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "homeassistant_sensor_power_w{entity=~\"sensor.givenergy_inverter\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Battery",
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "homeassistant_sensor_power_w{entity=~\"sensor.givenergy_generation\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Generation",
+          "refId": "F"
         }
       ],
       "title": "Flows",
       "type": "timeseries"
     },
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -200,7 +238,6 @@
       "type": "timeseries"
     },
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -316,7 +353,6 @@
       "type": "timeseries"
     },
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -406,7 +442,6 @@
       "type": "timeseries"
     },
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -518,7 +553,6 @@
       "type": "timeseries"
     },
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -626,7 +660,6 @@
       "type": "timeseries"
     },
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -731,7 +764,7 @@
     }
   ],
   "refresh": "10s",
-  "schemaVersion": 32,
+  "schemaVersion": 34,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -745,5 +778,6 @@
   "timezone": "",
   "title": "GivForecast",
   "uid": "YJwR1fhnz",
-  "version": 1
+  "version": 1,
+  "weekStart": ""
 }
