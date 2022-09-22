@@ -3,7 +3,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -25,6 +28,10 @@
   "liveNow": false,
   "panels": [
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -92,7 +99,8 @@
           "placement": "right"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
@@ -149,6 +157,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -214,11 +226,16 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
           "exemplar": true,
           "expr": "homeassistant_sensor_power_w{entity=\"sensor.emoncms_solar\"}",
           "interval": "",
@@ -226,6 +243,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
           "exemplar": true,
           "expr": "homeassistant_sensor_power_w{entity=\"sensor.energy_forecast_solar\"}",
           "hide": false,
@@ -238,6 +259,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -320,11 +345,16 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
           "exemplar": true,
           "expr": "homeassistant_sensor_battery_percent{entity=\"sensor.givenergy_battery_charge\"}",
           "hide": false,
@@ -333,6 +363,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
           "exemplar": true,
           "expr": "homeassistant_sensor_battery_percent{entity=\"sensor.energy_forecast_soc\"}",
           "hide": false,
@@ -341,6 +375,10 @@
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
           "exemplar": true,
           "expr": "homeassistant_sensor_unit_percent{entity=\"sensor.givenergy_charge_target\"}",
           "hide": false,
@@ -353,6 +391,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -418,11 +460,16 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
           "exemplar": true,
           "expr": "homeassistant_sensor_power_w{entity=\"sensor.emoncms_use\"}",
           "interval": "",
@@ -430,6 +477,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
           "exemplar": true,
           "expr": "homeassistant_sensor_power_w{entity=~\"sensor.energy_forecast_consumption\"}",
           "hide": false,
@@ -442,6 +493,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -520,11 +575,16 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
           "exemplar": true,
           "expr": "homeassistant_sensor_temperature_celsius{entity=\"sensor.givenergy_invertor_temperature\"}",
           "hide": false,
@@ -533,16 +593,24 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
           "exemplar": true,
-          "expr": "homeassistant_sensor_temperature_celsius{entity=\"sensor.givenergy_battery_module_1_temperature\"}",
+          "expr": "sum(homeassistant_sensor_temperature_celsius{entity=\"sensor.givenergy_battery_module_1_temperature\"}) or sum(homeassistant_sensor_temperature_c{entity=\"sensor.givtcp_bg2124g169_battery_temperature\"})",
           "hide": false,
           "interval": "",
           "legendFormat": "Module 1",
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
           "exemplar": true,
-          "expr": "homeassistant_sensor_temperature_celsius{entity=\"sensor.givenergy_battery_module_2_temperature\"}",
+          "expr": "sum(homeassistant_sensor_temperature_celsius{entity=\"sensor.givenergy_battery_module_2_temperature\"}) or sum(homeassistant_sensor_temperature_c{entity=\"sensor.givtcp_bg2134g083_battery_temperature\"})",
           "hide": false,
           "interval": "",
           "legendFormat": "Module 2",
@@ -553,6 +621,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -635,21 +707,30 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
           "exemplar": true,
-          "expr": "homeassistant_sensor_battery_percent{entity=\"sensor.givenergy_battery_module_1_soc\"}",
+          "expr": "sum(homeassistant_sensor_battery_percent{entity=\"sensor.givenergy_battery_module_1_soc\"}) or sum(homeassistant_sensor_battery_percent{entity=\"sensor.givtcp_bg2124g169_battery_soc\"})",
           "hide": false,
           "interval": "",
           "legendFormat": "Module 1",
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
           "exemplar": true,
-          "expr": "homeassistant_sensor_battery_percent{entity=\"sensor.givenergy_battery_module_2_soc\"}",
+          "expr": "sum(homeassistant_sensor_battery_percent{entity=\"sensor.givenergy_battery_module_2_soc\"}) or sum(homeassistant_sensor_battery_percent{entity=\"sensor.givtcp_bg2134g083_battery_soc\"})",
           "hide": false,
           "interval": "",
           "legendFormat": "Module 2",
@@ -660,6 +741,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -738,21 +823,30 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
           "exemplar": true,
-          "expr": "homeassistant_sensor_unit_ah{entity=\"sensor.givenergy_battery_module_1_capacity\"}",
+          "expr": "sum(homeassistant_sensor_unit_ah{entity=\"sensor.givenergy_battery_module_1_capacity\"}) or sum(homeassistant_sensor_state{entity=\"sensor.givtcp_bg2124g169_battery_capacity\"})",
           "hide": false,
           "interval": "",
           "legendFormat": "Module 1",
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
           "exemplar": true,
-          "expr": "homeassistant_sensor_unit_ah{entity=\"sensor.givenergy_battery_module_2_capacity\"}",
+          "expr": "sum(homeassistant_sensor_unit_ah{entity=\"sensor.givenergy_battery_module_2_capacity\"}) or sum(homeassistant_sensor_state{entity=\"sensor.givtcp_bg2134g083_battery_capacity\"})",
           "hide": false,
           "interval": "",
           "legendFormat": "Module 2",
@@ -764,7 +858,7 @@
     }
   ],
   "refresh": "10s",
-  "schemaVersion": 34,
+  "schemaVersion": 36,
   "style": "dark",
   "tags": [],
   "templating": {
