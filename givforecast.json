@@ -38,6 +38,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -96,7 +98,8 @@
             "lastNotNull"
           ],
           "displayMode": "table",
-          "placement": "right"
+          "placement": "right",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -167,6 +170,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -223,7 +228,8 @@
         "legend": {
           "calcs": [],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -269,6 +275,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "axisSoftMax": 100,
@@ -342,7 +350,8 @@
         "legend": {
           "calcs": [],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -401,6 +410,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -457,7 +468,8 @@
         "legend": {
           "calcs": [],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -503,6 +515,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -572,7 +586,8 @@
         "legend": {
           "calcs": [],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -609,11 +624,13 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(homeassistant_sensor_temperature_celsius{entity=\"sensor.givenergy_battery_module_2_temperature\"}) or sum(homeassistant_sensor_temperature_c{entity=\"sensor.givtcp_bg2134g083_battery_temperature\"})",
+          "expr": "sum(homeassistant_sensor_temperature_celsius{entity=\"sensor.givenergy_battery_module_2_temperature\"}) or sum(homeassistant_sensor_temperature_c{entity=\"sensor.givtcp_dy2242g118_battery_temperature\"}) or sum(homeassistant_sensor_temperature_c{entity=\"sensor.givtcp_bg2134g083_battery_temperature\"}) ",
           "hide": false,
           "interval": "",
           "legendFormat": "Module 2",
+          "range": true,
           "refId": "C"
         }
       ],
@@ -631,6 +648,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "axisSoftMax": 100,
@@ -704,7 +723,8 @@
         "legend": {
           "calcs": [],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -717,11 +737,13 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
+          "editorMode": "code",
           "exemplar": true,
           "expr": "sum(homeassistant_sensor_battery_percent{entity=\"sensor.givenergy_battery_module_1_soc\"}) or sum(homeassistant_sensor_battery_percent{entity=\"sensor.givtcp_bg2124g169_battery_soc\"})",
           "hide": false,
           "interval": "",
           "legendFormat": "Module 1",
+          "range": true,
           "refId": "A"
         },
         {
@@ -729,11 +751,13 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(homeassistant_sensor_battery_percent{entity=\"sensor.givenergy_battery_module_2_soc\"}) or sum(homeassistant_sensor_battery_percent{entity=\"sensor.givtcp_bg2134g083_battery_soc\"})",
+          "expr": "sum(homeassistant_sensor_battery_percent{entity=\"sensor.givenergy_battery_module_2_soc\"}) or sum(homeassistant_sensor_battery_percent{entity=\"sensor.givtcp_dy2242g118_battery_soc\"}) or sum(homeassistant_sensor_battery_percent{entity=\"sensor.givtcp_bg2134g083_battery_soc\"})",
           "hide": false,
           "interval": "",
           "legendFormat": "Module 2",
+          "range": true,
           "refId": "B"
         }
       ],
@@ -751,6 +775,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -820,7 +846,8 @@
         "legend": {
           "calcs": [],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -845,11 +872,13 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(homeassistant_sensor_unit_ah{entity=\"sensor.givenergy_battery_module_2_capacity\"}) or sum(homeassistant_sensor_state{entity=\"sensor.givtcp_bg2134g083_battery_capacity\"})",
+          "expr": "sum(homeassistant_sensor_unit_ah{entity=\"sensor.givenergy_battery_module_2_capacity\"}) or sum(homeassistant_sensor_state{entity=\"sensor.givtcp_dy2242g118_battery_capacity\"}) or sum(homeassistant_sensor_state{entity=\"sensor.givtcp_bg2134g083_battery_capacity\"})",
           "hide": false,
           "interval": "",
           "legendFormat": "Module 2",
+          "range": true,
           "refId": "B"
         }
       ],
@@ -858,7 +887,7 @@
     }
   ],
   "refresh": "10s",
-  "schemaVersion": 36,
+  "schemaVersion": 37,
   "style": "dark",
   "tags": [],
   "templating": {
