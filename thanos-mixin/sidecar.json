@@ -132,7 +132,7 @@
                "title": "Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -209,7 +209,7 @@
                "title": "Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -327,7 +327,7 @@
                "title": "Duration",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -488,7 +488,7 @@
                "title": "Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -564,7 +564,7 @@
                "title": "Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -682,7 +682,7 @@
                "title": "Duration",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -794,10 +794,8 @@
                      "expr": "time() - max by (job, bucket) (thanos_objstore_bucket_last_successful_upload_time{job=~\"$job\"})",
                      "format": "table",
                      "instant": true,
-                     "intervalFactor": 2,
                      "legendFormat": "",
-                     "refId": "A",
-                     "step": 10
+                     "refId": "A"
                   }
                ],
                "thresholds": [ ],
@@ -806,7 +804,7 @@
                "title": "Successful Upload",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "transform": "table",
@@ -883,10 +881,8 @@
                   {
                      "expr": "sum by (job, operation) (rate(thanos_objstore_bucket_operations_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{job}} {{operation}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -895,7 +891,7 @@
                "title": "Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -972,7 +968,7 @@
                "title": "Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1089,7 +1085,7 @@
                "title": "Duration",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1165,50 +1161,38 @@
                   {
                      "expr": "go_memstats_alloc_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc all {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "go_memstats_heap_alloc_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc heap {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "rate(go_memstats_alloc_bytes_total{job=~\"$job\"}[30s])",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc rate all {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "rate(go_memstats_heap_alloc_bytes{job=~\"$job\"}[30s])",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc rate heap {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "go_memstats_stack_inuse_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "inuse heap {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "go_memstats_heap_inuse_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "inuse stack {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1217,7 +1201,7 @@
                "title": "Memory Used",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1281,10 +1265,8 @@
                   {
                      "expr": "go_goroutines{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1293,7 +1275,7 @@
                "title": "Goroutines",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1357,10 +1339,8 @@
                   {
                      "expr": "go_gc_duration_seconds{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{quantile}} {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1369,7 +1349,7 @@
                "title": "GC Time Quantiles",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1421,7 +1401,7 @@
                "value": "default"
             },
             "hide": 0,
-            "label": null,
+            "label": "Data source",
             "name": "datasource",
             "options": [ ],
             "query": "prometheus",
@@ -1457,7 +1437,7 @@
             "multi": false,
             "name": "job",
             "options": [ ],
-            "query": "label_values(up{kubernetes_name=~\".*thanos-sidecar.*\"}, job)",
+            "query": "label_values(up{app_kubernetes_io_name=\"thanos-sidecar\"}, job)",
             "refresh": 1,
             "regex": "",
             "sort": 2,
@@ -1499,7 +1479,7 @@
       ]
    },
    "timezone": "UTC",
-   "title": "Thanos / Sidecar",
+   "title": "Sidecar",
    "uid": "b19644bfbf0ec1e108027cce268d99f7",
    "version": 0
 }

@@ -132,7 +132,7 @@
                "title": "Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -209,7 +209,7 @@
                "title": "Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -327,7 +327,7 @@
                "title": "Duration",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -488,7 +488,7 @@
                "title": "Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -565,7 +565,7 @@
                "title": "Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -683,7 +683,7 @@
                "title": "Duration",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -760,10 +760,8 @@
                   {
                      "expr": "sum by (job, operation) (rate(thanos_objstore_bucket_operations_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{job}} {{operation}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -772,7 +770,7 @@
                "title": "Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -837,10 +835,8 @@
                   {
                      "expr": "sum by (job, operation) (rate(thanos_objstore_bucket_operation_failures_total{job=~\"$job\"}[$__rate_interval])) / sum by (job, operation) (rate(thanos_objstore_bucket_operations_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{job}} {{operation}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -849,7 +845,7 @@
                "title": "Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -942,7 +938,7 @@
                "title": "Duration",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1019,10 +1015,8 @@
                   {
                      "expr": "sum by (job) (rate(thanos_bucket_store_block_loads_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "block loads",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1031,7 +1025,7 @@
                "title": "Block Load Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1109,7 +1103,7 @@
                "title": "Block Load Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1174,10 +1168,8 @@
                   {
                      "expr": "sum by (job, operation) (rate(thanos_bucket_store_block_drops_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "block drops {{job}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1186,7 +1178,7 @@
                "title": "Block Drop Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1264,7 +1256,7 @@
                "title": "Block Drop Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1341,10 +1333,8 @@
                   {
                      "expr": "sum by (job, item_type) (rate(thanos_store_index_cache_requests_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{job}} {{item_type}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1353,7 +1343,7 @@
                "title": "Requests",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1418,10 +1408,8 @@
                   {
                      "expr": "sum by (job, item_type) (rate(thanos_store_index_cache_hits_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{job}} {{item_type}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1430,7 +1418,7 @@
                "title": "Hits",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1495,10 +1483,8 @@
                   {
                      "expr": "sum by (job, item_type) (rate(thanos_store_index_cache_items_added_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{job}} {{item_type}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1507,7 +1493,7 @@
                "title": "Added",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1572,10 +1558,8 @@
                   {
                      "expr": "sum by (job, item_type) (rate(thanos_store_index_cache_items_evicted_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{job}} {{item_type}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1584,7 +1568,7 @@
                "title": "Evicted",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1661,26 +1645,20 @@
                   {
                      "expr": "histogram_quantile(0.99, sum by (job, le) (rate(thanos_bucket_store_sent_chunk_size_bytes_bucket{job=~\"$job\"}[$__rate_interval])))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "P99",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "sum by (job) (rate(thanos_bucket_store_sent_chunk_size_bytes_sum{job=~\"$job\"}[$__rate_interval])) / sum by (job) (rate(thanos_bucket_store_sent_chunk_size_bytes_count{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "mean",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "histogram_quantile(0.50, sum by (job, le) (rate(thanos_bucket_store_sent_chunk_size_bytes_bucket{job=~\"$job\"}[$__rate_interval])))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "P50",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1689,7 +1667,7 @@
                "title": "Chunk Size",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1765,26 +1743,20 @@
                   {
                      "expr": "histogram_quantile(0.99, sum by (le) (rate(thanos_bucket_store_series_blocks_queried{job=~\"$job\"}[$__rate_interval])))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "P99",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "sum by (job) (rate(thanos_bucket_store_series_blocks_queried_sum{job=~\"$job\"}[$__rate_interval])) / sum by (job) (rate(thanos_bucket_store_series_blocks_queried_count{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "mean {{job}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "histogram_quantile(0.50, sum by (le) (rate(thanos_bucket_store_series_blocks_queried{job=~\"$job\"}[$__rate_interval])))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "P50",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1793,7 +1765,7 @@
                "title": "Block queried",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1858,26 +1830,20 @@
                   {
                      "expr": "histogram_quantile(0.99, sum by (le) (rate(thanos_bucket_store_series_data_fetched{job=~\"$job\"}[$__rate_interval])))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "P99: {{data_type}} / {{job}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "sum by (job, data_type) (rate(thanos_bucket_store_series_data_fetched_sum{job=~\"$job\"}[$__rate_interval])) / sum by (job, data_type) (rate(thanos_bucket_store_series_data_fetched_count{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "mean: {{data_type}} / {{job}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "histogram_quantile(0.50, sum by (le) (rate(thanos_bucket_store_series_data_fetched{job=~\"$job\"}[$__rate_interval])))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "P50: {{data_type}} / {{job}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1886,7 +1852,7 @@
                "title": "Data Fetched",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1951,26 +1917,20 @@
                   {
                      "expr": "histogram_quantile(0.99, sum by (le) (rate(thanos_bucket_store_series_data_touched{job=~\"$job\"}[$__rate_interval])))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "P99: {{data_type}} / {{job}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "sum by (job, data_type) (rate(thanos_bucket_store_series_data_touched_sum{job=~\"$job\"}[$__rate_interval])) / sum by (job, data_type) (rate(thanos_bucket_store_series_data_touched_count{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "mean: {{data_type}} / {{job}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "histogram_quantile(0.50, sum by (le) (rate(thanos_bucket_store_series_data_touched{job=~\"$job\"}[$__rate_interval])))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "P50: {{data_type}} / {{job}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1979,7 +1939,7 @@
                "title": "Data Touched",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -2043,26 +2003,20 @@
                   {
                      "expr": "histogram_quantile(0.99, sum by (le) (rate(thanos_bucket_store_series_result_series{job=~\"$job\"}[$__rate_interval])))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "P99",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "sum by (job) (rate(thanos_bucket_store_series_result_series_sum{job=~\"$job\"}[$__rate_interval])) / sum by (job) (rate(thanos_bucket_store_series_result_series_count{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "mean {{job}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "histogram_quantile(0.50, sum by (le) (rate(thanos_bucket_store_series_result_series{job=~\"$job\"}[$__rate_interval])))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "P50",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -2071,7 +2025,7 @@
                "title": "Result series",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -2201,7 +2155,7 @@
                "title": "Get All",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -2319,7 +2273,7 @@
                "title": "Merge",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -2437,7 +2391,7 @@
                "title": "Gate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -2513,50 +2467,38 @@
                   {
                      "expr": "go_memstats_alloc_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc all {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "go_memstats_heap_alloc_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc heap {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "rate(go_memstats_alloc_bytes_total{job=~\"$job\"}[30s])",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc rate all {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "rate(go_memstats_heap_alloc_bytes{job=~\"$job\"}[30s])",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc rate heap {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "go_memstats_stack_inuse_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "inuse heap {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "go_memstats_heap_inuse_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "inuse stack {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -2565,7 +2507,7 @@
                "title": "Memory Used",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -2629,10 +2571,8 @@
                   {
                      "expr": "go_goroutines{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -2641,7 +2581,7 @@
                "title": "Goroutines",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -2705,10 +2645,8 @@
                   {
                      "expr": "go_gc_duration_seconds{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{quantile}} {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -2717,7 +2655,7 @@
                "title": "GC Time Quantiles",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -2769,7 +2707,7 @@
                "value": "default"
             },
             "hide": 0,
-            "label": null,
+            "label": "Data source",
             "name": "datasource",
             "options": [ ],
             "query": "prometheus",
@@ -2805,7 +2743,7 @@
             "multi": false,
             "name": "job",
             "options": [ ],
-            "query": "label_values(up{kubernetes_name=~\".*thanos-store.*\"}, job)",
+            "query": "label_values(up{app_kubernetes_io_name=\"thanos-store\"}, job)",
             "refresh": 1,
             "regex": "",
             "sort": 2,
@@ -2847,7 +2785,7 @@
       ]
    },
    "timezone": "UTC",
-   "title": "Thanos / Store",
+   "title": "Store",
    "uid": "e832e8f26403d95fac0ea1c59837588b",
    "version": 0
 }

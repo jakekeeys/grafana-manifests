@@ -35,10 +35,10 @@
                "linewidth": 0,
                "links": [
                   {
-                     "dashboard": "Thanos / Query",
+                     "dashboard": "Query",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Query",
+                     "title": "Query",
                      "type": "dashboard"
                   }
                ],
@@ -88,7 +88,7 @@
                "title": "Requests Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -142,10 +142,10 @@
                "linewidth": 0,
                "links": [
                   {
-                     "dashboard": "Thanos / Query",
+                     "dashboard": "Query",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Query",
+                     "title": "Query",
                      "type": "dashboard"
                   }
                ],
@@ -173,7 +173,7 @@
                "title": "Requests Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -225,10 +225,10 @@
                "linewidth": 1,
                "links": [
                   {
-                     "dashboard": "Thanos / Query",
+                     "dashboard": "Query",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Query",
+                     "title": "Query",
                      "type": "dashboard"
                   }
                ],
@@ -246,10 +246,8 @@
                   {
                      "expr": "histogram_quantile(0.99, sum by (job, le) (rate(http_request_duration_seconds_bucket{handler=\"query\"}[$interval])))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{job}} P99",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [
@@ -275,7 +273,7 @@
                "title": "Latency 99th Percentile",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -339,10 +337,10 @@
                "linewidth": 0,
                "links": [
                   {
-                     "dashboard": "Thanos / Query",
+                     "dashboard": "Query",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Query",
+                     "title": "Query",
                      "type": "dashboard"
                   }
                ],
@@ -392,7 +390,7 @@
                "title": "Requests Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -446,10 +444,10 @@
                "linewidth": 0,
                "links": [
                   {
-                     "dashboard": "Thanos / Query",
+                     "dashboard": "Query",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Query",
+                     "title": "Query",
                      "type": "dashboard"
                   }
                ],
@@ -477,7 +475,7 @@
                "title": "Requests Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -529,10 +527,10 @@
                "linewidth": 1,
                "links": [
                   {
-                     "dashboard": "Thanos / Query",
+                     "dashboard": "Query",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Query",
+                     "title": "Query",
                      "type": "dashboard"
                   }
                ],
@@ -550,10 +548,8 @@
                   {
                      "expr": "histogram_quantile(0.99, sum by (job, le) (rate(http_request_duration_seconds_bucket{handler=\"query_range\"}[$interval])))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{job}} P99",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [
@@ -579,7 +575,7 @@
                "title": "Latency 99th Percentile",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -643,10 +639,10 @@
                "linewidth": 0,
                "links": [
                   {
-                     "dashboard": "Thanos / Store",
+                     "dashboard": "Store",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Store",
+                     "title": "Store",
                      "type": "dashboard"
                   }
                ],
@@ -748,7 +744,7 @@
                "title": "gRPC (Unary) Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -802,10 +798,10 @@
                "linewidth": 0,
                "links": [
                   {
-                     "dashboard": "Thanos / Store",
+                     "dashboard": "Store",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Store",
+                     "title": "Store",
                      "type": "dashboard"
                   }
                ],
@@ -833,7 +829,7 @@
                "title": "gRPC (Unary) Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -885,10 +881,10 @@
                "linewidth": 1,
                "links": [
                   {
-                     "dashboard": "Thanos / Store",
+                     "dashboard": "Store",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Store",
+                     "title": "Store",
                      "type": "dashboard"
                   }
                ],
@@ -906,10 +902,8 @@
                   {
                      "expr": "histogram_quantile(0.99, sum by (job, le) (rate(grpc_server_handling_seconds_bucket{grpc_type=\"unary\"}[$interval])))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{job}} P99",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [
@@ -935,7 +929,7 @@
                "title": "gRPC Latency 99th Percentile",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -999,10 +993,10 @@
                "linewidth": 0,
                "links": [
                   {
-                     "dashboard": "Thanos / Sidecar",
+                     "dashboard": "Sidecar",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Sidecar",
+                     "title": "Sidecar",
                      "type": "dashboard"
                   }
                ],
@@ -1104,7 +1098,7 @@
                "title": "gRPC (Unary) Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1158,10 +1152,10 @@
                "linewidth": 0,
                "links": [
                   {
-                     "dashboard": "Thanos / Sidecar",
+                     "dashboard": "Sidecar",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Sidecar",
+                     "title": "Sidecar",
                      "type": "dashboard"
                   }
                ],
@@ -1189,7 +1183,7 @@
                "title": "gRPC (Unary) Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1241,10 +1235,10 @@
                "linewidth": 1,
                "links": [
                   {
-                     "dashboard": "Thanos / Sidecar",
+                     "dashboard": "Sidecar",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Sidecar",
+                     "title": "Sidecar",
                      "type": "dashboard"
                   }
                ],
@@ -1262,10 +1256,8 @@
                   {
                      "expr": "histogram_quantile(0.99, sum by (job, le) (rate(grpc_server_handling_seconds_bucket{grpc_type=\"unary\"}[$interval])))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{job}} P99",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [
@@ -1291,7 +1283,7 @@
                "title": "gRPC (Unary) Latency 99th Percentile",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1355,10 +1347,10 @@
                "linewidth": 0,
                "links": [
                   {
-                     "dashboard": "Thanos / Receive",
+                     "dashboard": "Receive",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Receive",
+                     "title": "Receive",
                      "type": "dashboard"
                   }
                ],
@@ -1408,7 +1400,7 @@
                "title": "Incoming Requests Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1462,10 +1454,10 @@
                "linewidth": 0,
                "links": [
                   {
-                     "dashboard": "Thanos / Receive",
+                     "dashboard": "Receive",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Receive",
+                     "title": "Receive",
                      "type": "dashboard"
                   }
                ],
@@ -1493,7 +1485,7 @@
                "title": "Incoming Requests Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1545,10 +1537,10 @@
                "linewidth": 1,
                "links": [
                   {
-                     "dashboard": "Thanos / Receive",
+                     "dashboard": "Receive",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Receive",
+                     "title": "Receive",
                      "type": "dashboard"
                   }
                ],
@@ -1566,10 +1558,8 @@
                   {
                      "expr": "histogram_quantile(0.99, sum by (job, le) (rate(http_request_duration_seconds_bucket{handler=\"receive\"}[$interval])))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{job}} P99",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [
@@ -1595,7 +1585,7 @@
                "title": "Incoming Requests Latency 99th Percentile",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1659,10 +1649,10 @@
                "linewidth": 0,
                "links": [
                   {
-                     "dashboard": "Thanos / Rule",
+                     "dashboard": "Rule",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Rule",
+                     "title": "Rule",
                      "type": "dashboard"
                   }
                ],
@@ -1680,10 +1670,8 @@
                   {
                      "expr": "sum by (job, alertmanager) (rate(thanos_alert_sender_alerts_sent_total{}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{alertmanager}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1692,7 +1680,7 @@
                "title": "Alert Sent Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1746,10 +1734,10 @@
                "linewidth": 0,
                "links": [
                   {
-                     "dashboard": "Thanos / Rule",
+                     "dashboard": "Rule",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Rule",
+                     "title": "Rule",
                      "type": "dashboard"
                   }
                ],
@@ -1778,7 +1766,7 @@
                "title": "Alert Sent Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1830,10 +1818,10 @@
                "linewidth": 1,
                "links": [
                   {
-                     "dashboard": "Thanos / Rule",
+                     "dashboard": "Rule",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Rule",
+                     "title": "Rule",
                      "type": "dashboard"
                   }
                ],
@@ -1851,10 +1839,8 @@
                   {
                      "expr": "histogram_quantile(0.99, sum by (job, le) (rate(thanos_alert_sender_latency_seconds_bucket{}[$interval])))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{job}} P99",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [
@@ -1880,7 +1866,7 @@
                "title": "Alert Sent Duration",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1944,10 +1930,10 @@
                "linewidth": 0,
                "links": [
                   {
-                     "dashboard": "Thanos / Compact",
+                     "dashboard": "Compact",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Compact",
+                     "title": "Compact",
                      "type": "dashboard"
                   }
                ],
@@ -1965,10 +1951,8 @@
                   {
                      "expr": "sum by (job) (rate(thanos_compact_group_compactions_total{}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "compaction {{job}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1977,7 +1961,7 @@
                "title": "Compaction Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -2031,10 +2015,10 @@
                "linewidth": 0,
                "links": [
                   {
-                     "dashboard": "Thanos / Compact",
+                     "dashboard": "Compact",
                      "includeVars": true,
                      "keepTime": true,
-                     "title": "Thanos / Compact",
+                     "title": "Compact",
                      "type": "dashboard"
                   }
                ],
@@ -2063,7 +2047,7 @@
                "title": "Compaction Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -2115,7 +2099,7 @@
                "value": "default"
             },
             "hide": 0,
-            "label": null,
+            "label": "Data source",
             "name": "datasource",
             "options": [ ],
             "query": "prometheus",
@@ -2170,7 +2154,7 @@
       ]
    },
    "timezone": "UTC",
-   "title": "Thanos / Overview",
+   "title": "Overview",
    "uid": "0cb8830a6e957978796729870f560cda",
    "version": 0
 }

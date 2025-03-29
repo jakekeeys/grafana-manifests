@@ -1,18 +1,5 @@
 {
    "editable": false,
-   "links": [
-      {
-         "asDropdown": true,
-         "includeVars": true,
-         "keepTime": true,
-         "tags": [
-            "kubernetes-mixin"
-         ],
-         "targetBlank": false,
-         "title": "Kubernetes",
-         "type": "dashboards"
-      }
-   ],
    "panels": [
       {
          "datasource": {
@@ -21,19 +8,35 @@
          },
          "fieldConfig": {
             "defaults": {
-               "unit": "none"
+               "custom": {
+                  "fillOpacity": 10,
+                  "showPoints": "never",
+                  "spanNulls": true
+               },
+               "unit": "percentunit"
             }
          },
          "gridPos": {
             "h": 7,
-            "w": 4,
+            "w": 12,
             "x": 0,
             "y": 0
          },
          "id": 1,
          "interval": "1m",
          "options": {
-            "colorMode": "none"
+            "legend": {
+               "asTable": true,
+               "calcs": [
+                  "lastNotNull"
+               ],
+               "displayMode": "table",
+               "placement": "right",
+               "showLegend": true
+            },
+            "tooltip": {
+               "mode": "single"
+            }
          },
          "pluginVersion": "v11.4.0",
          "targets": [
@@ -42,12 +45,12 @@
                   "type": "prometheus",
                   "uid": "${datasource}"
                },
-               "expr": "sum(up{cluster=\"$cluster\", job=\"kube-scheduler\"})",
-               "instant": true
+               "expr": "node:windows_node_cpu_utilisation:avg1m{cluster=\"$cluster\", instance=\"$instance\"}",
+               "legendFormat": "Utilisation"
             }
          ],
-         "title": "Up",
-         "type": "stat"
+         "title": "CPU Utilisation",
+         "type": "timeseries"
       },
       {
          "datasource": {
@@ -61,13 +64,13 @@
                   "showPoints": "never",
                   "spanNulls": true
                },
-               "unit": "ops"
+               "unit": "percentunit"
             }
          },
          "gridPos": {
             "h": 7,
-            "w": 10,
-            "x": 4,
+            "w": 12,
+            "x": 12,
             "y": 0
          },
          "id": 2,
@@ -93,35 +96,11 @@
                   "type": "prometheus",
                   "uid": "${datasource}"
                },
-               "expr": "sum(rate(scheduler_e2e_scheduling_duration_seconds_count{cluster=\"$cluster\", job=\"kube-scheduler\", instance=~\"$instance\"}[$__rate_interval])) by (cluster, instance)",
-               "legendFormat": "{{cluster}} {{instance}} e2e"
-            },
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "${datasource}"
-               },
-               "expr": "sum(rate(scheduler_binding_duration_seconds_count{cluster=\"$cluster\", job=\"kube-scheduler\", instance=~\"$instance\"}[$__rate_interval])) by (cluster, instance)",
-               "legendFormat": "{{cluster}} {{instance}} binding"
-            },
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "${datasource}"
-               },
-               "expr": "sum(rate(scheduler_scheduling_algorithm_duration_seconds_count{cluster=\"$cluster\", job=\"kube-scheduler\", instance=~\"$instance\"}[$__rate_interval])) by (cluster, instance)",
-               "legendFormat": "{{cluster}} {{instance}} scheduling algorithm"
-            },
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "${datasource}"
-               },
-               "expr": "sum(rate(scheduler_volume_scheduling_duration_seconds_count{cluster=\"$cluster\", job=\"kube-scheduler\", instance=~\"$instance\"}[$__rate_interval])) by (cluster, instance)",
-               "legendFormat": "{{cluster}} {{instance}} volume"
+               "expr": "sum by (core) (irate(windows_cpu_time_total{cluster=\"$cluster\", job=\"kubernetes-windows-exporter\", mode!=\"idle\", instance=\"$instance\"}[$__rate_interval]))",
+               "legendFormat": "{{core}}"
             }
          ],
-         "title": "Scheduling Rate",
+         "title": "CPU Usage Per Core",
          "type": "timeseries"
       },
       {
@@ -136,14 +115,14 @@
                   "showPoints": "never",
                   "spanNulls": true
                },
-               "unit": "s"
+               "unit": "percentunit"
             }
          },
          "gridPos": {
             "h": 7,
-            "w": 10,
-            "x": 14,
-            "y": 0
+            "w": 8,
+            "x": 0,
+            "y": 7
          },
          "id": 3,
          "interval": "1m",
@@ -168,35 +147,11 @@
                   "type": "prometheus",
                   "uid": "${datasource}"
                },
-               "expr": "histogram_quantile(0.99, sum(rate(scheduler_e2e_scheduling_duration_seconds_bucket{cluster=\"$cluster\", job=\"kube-scheduler\",instance=~\"$instance\"}[$__rate_interval])) by (cluster, instance, le))",
-               "legendFormat": "{{cluster}} {{instance}} e2e"
-            },
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "${datasource}"
-               },
-               "expr": "histogram_quantile(0.99, sum(rate(scheduler_binding_duration_seconds_bucket{cluster=\"$cluster\", job=\"kube-scheduler\",instance=~\"$instance\"}[$__rate_interval])) by (cluster, instance, le))",
-               "legendFormat": "{{cluster}} {{instance}} binding"
-            },
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "${datasource}"
-               },
-               "expr": "histogram_quantile(0.99, sum(rate(scheduler_scheduling_algorithm_duration_seconds_bucket{cluster=\"$cluster\", job=\"kube-scheduler\",instance=~\"$instance\"}[$__rate_interval])) by (cluster, instance, le))",
-               "legendFormat": "{{cluster}} {{instance}} scheduling algorithm"
-            },
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "${datasource}"
-               },
-               "expr": "histogram_quantile(0.99, sum(rate(scheduler_volume_scheduling_duration_seconds_bucket{cluster=\"$cluster\", job=\"kube-scheduler\",instance=~\"$instance\"}[$__rate_interval])) by (cluster, instance, le))",
-               "legendFormat": "{{cluster}} {{instance}} volume"
+               "expr": "node:windows_node_memory_utilisation:{cluster=\"$cluster\", instance=\"$instance\"}",
+               "legendFormat": "Memory"
             }
          ],
-         "title": "Scheduling latency 99th Quantile",
+         "title": "Memory Utilisation %",
          "type": "timeseries"
       },
       {
@@ -211,13 +166,13 @@
                   "showPoints": "never",
                   "spanNulls": true
                },
-               "unit": "ops"
+               "unit": "bytes"
             }
          },
          "gridPos": {
             "h": 7,
             "w": 8,
-            "x": 0,
+            "x": 8,
             "y": 7
          },
          "id": 4,
@@ -243,35 +198,27 @@
                   "type": "prometheus",
                   "uid": "${datasource}"
                },
-               "expr": "sum(rate(rest_client_requests_total{cluster=\"$cluster\", job=\"kube-scheduler\", instance=~\"$instance\",code=~\"2..\"}[$__rate_interval]))",
-               "legendFormat": "2xx"
+               "expr": "max(\n  windows_os_visible_memory_bytes{cluster=\"$cluster\", job=\"kubernetes-windows-exporter\", instance=\"$instance\"}\n  - windows_memory_available_bytes{cluster=\"$cluster\", job=\"kubernetes-windows-exporter\", instance=\"$instance\"}\n)\n",
+               "legendFormat": "memory used"
             },
             {
                "datasource": {
                   "type": "prometheus",
                   "uid": "${datasource}"
                },
-               "expr": "sum(rate(rest_client_requests_total{cluster=\"$cluster\", job=\"kube-scheduler\", instance=~\"$instance\",code=~\"3..\"}[$__rate_interval]))",
-               "legendFormat": "3xx"
+               "expr": "max(node:windows_node_memory_totalCached_bytes:sum{cluster=\"$cluster\", instance=\"$instance\"})",
+               "legendFormat": "memory cached"
             },
             {
                "datasource": {
                   "type": "prometheus",
                   "uid": "${datasource}"
                },
-               "expr": "sum(rate(rest_client_requests_total{cluster=\"$cluster\", job=\"kube-scheduler\", instance=~\"$instance\",code=~\"4..\"}[$__rate_interval]))",
-               "legendFormat": "4xx"
-            },
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "${datasource}"
-               },
-               "expr": "sum(rate(rest_client_requests_total{cluster=\"$cluster\", job=\"kube-scheduler\", instance=~\"$instance\",code=~\"5..\"}[$__rate_interval]))",
-               "legendFormat": "5xx"
+               "expr": "max(windows_memory_available_bytes{cluster=\"$cluster\", job=\"kubernetes-windows-exporter\", instance=\"$instance\"})",
+               "legendFormat": "memory free"
             }
          ],
-         "title": "Kube API Request Rate",
+         "title": "Memory Usage",
          "type": "timeseries"
       },
       {
@@ -286,13 +233,13 @@
                   "showPoints": "never",
                   "spanNulls": true
                },
-               "unit": "ops"
+               "unit": "short"
             }
          },
          "gridPos": {
             "h": 7,
-            "w": 16,
-            "x": 8,
+            "w": 8,
+            "x": 16,
             "y": 7
          },
          "id": 5,
@@ -318,11 +265,11 @@
                   "type": "prometheus",
                   "uid": "${datasource}"
                },
-               "expr": "histogram_quantile(0.99, sum(rate(rest_client_request_duration_seconds_bucket{cluster=\"$cluster\", job=\"kube-scheduler\", instance=~\"$instance\", verb=\"POST\"}[$__rate_interval])) by (verb, le))",
-               "legendFormat": "{{verb}}"
+               "expr": "node:windows_node_memory_swap_io_pages:irate{cluster=\"$cluster\", instance=\"$instance\"}",
+               "legendFormat": "Swap IO"
             }
          ],
-         "title": "Post Request Latency 99th Quantile",
+         "title": "Memory Saturation (Swap I/O) Pages",
          "type": "timeseries"
       },
       {
@@ -337,12 +284,12 @@
                   "showPoints": "never",
                   "spanNulls": true
                },
-               "unit": "s"
+               "unit": "percentunit"
             }
          },
          "gridPos": {
             "h": 7,
-            "w": 24,
+            "w": 12,
             "x": 0,
             "y": 14
          },
@@ -369,11 +316,11 @@
                   "type": "prometheus",
                   "uid": "${datasource}"
                },
-               "expr": "histogram_quantile(0.99, sum(rate(rest_client_request_duration_seconds_bucket{cluster=\"$cluster\", job=\"kube-scheduler\", instance=~\"$instance\", verb=\"GET\"}[$__rate_interval])) by (verb, le))",
-               "legendFormat": "{{verb}}"
+               "expr": "node:windows_node_disk_utilisation:avg_irate{cluster=\"$cluster\", instance=\"$instance\"}",
+               "legendFormat": "Utilisation"
             }
          ],
-         "title": "Get Request Latency 99th Quantile",
+         "title": "Disk IO Utilisation",
          "type": "timeseries"
       },
       {
@@ -389,13 +336,27 @@
                   "spanNulls": true
                },
                "unit": "bytes"
-            }
+            },
+            "overrides": [
+               {
+                  "matcher": {
+                     "id": "byRegexp",
+                     "options": "/io time/"
+                  },
+                  "properties": [
+                     {
+                        "id": "unit",
+                        "value": "ms"
+                     }
+                  ]
+               }
+            ]
          },
          "gridPos": {
             "h": 7,
-            "w": 8,
-            "x": 0,
-            "y": 21
+            "w": 12,
+            "x": 12,
+            "y": 14
          },
          "id": 7,
          "interval": "1m",
@@ -420,11 +381,27 @@
                   "type": "prometheus",
                   "uid": "${datasource}"
                },
-               "expr": "process_resident_memory_bytes{cluster=\"$cluster\", job=\"kube-scheduler\", instance=~\"$instance\"}",
-               "legendFormat": "{{instance}}"
+               "expr": "max(rate(windows_logical_disk_read_bytes_total{cluster=\"$cluster\", job=\"kubernetes-windows-exporter\", instance=\"$instance\"}[$__rate_interval]))",
+               "legendFormat": "read"
+            },
+            {
+               "datasource": {
+                  "type": "prometheus",
+                  "uid": "${datasource}"
+               },
+               "expr": "max(rate(windows_logical_disk_write_bytes_total{cluster=\"$cluster\", job=\"kubernetes-windows-exporter\", instance=\"$instance\"}[$__rate_interval]))",
+               "legendFormat": "written"
+            },
+            {
+               "datasource": {
+                  "type": "prometheus",
+                  "uid": "${datasource}"
+               },
+               "expr": "max(rate(windows_logical_disk_read_seconds_total{cluster=\"$cluster\", job=\"kubernetes-windows-exporter\",  instance=\"$instance\"}[$__rate_interval]) + rate(windows_logical_disk_write_seconds_total{cluster=\"$cluster\", job=\"kubernetes-windows-exporter\", instance=\"$instance\"}[$__rate_interval]))",
+               "legendFormat": "io time"
             }
          ],
-         "title": "Memory",
+         "title": "Disk IO",
          "type": "timeseries"
       },
       {
@@ -439,13 +416,13 @@
                   "showPoints": "never",
                   "spanNulls": true
                },
-               "unit": "short"
+               "unit": "percentunit"
             }
          },
          "gridPos": {
             "h": 7,
-            "w": 8,
-            "x": 8,
+            "w": 24,
+            "x": 0,
             "y": 21
          },
          "id": 8,
@@ -471,11 +448,11 @@
                   "type": "prometheus",
                   "uid": "${datasource}"
                },
-               "expr": "rate(process_cpu_seconds_total{cluster=\"$cluster\", job=\"kube-scheduler\", instance=~\"$instance\"}[$__rate_interval])",
-               "legendFormat": "{{instance}}"
+               "expr": "node:windows_node_filesystem_usage:{cluster=\"$cluster\", instance=\"$instance\"}",
+               "legendFormat": "{{volume}}"
             }
          ],
-         "title": "CPU usage",
+         "title": "Disk Utilisation",
          "type": "timeseries"
       },
       {
@@ -490,14 +467,14 @@
                   "showPoints": "never",
                   "spanNulls": true
                },
-               "unit": "short"
+               "unit": "Bps"
             }
          },
          "gridPos": {
             "h": 7,
-            "w": 8,
-            "x": 16,
-            "y": 21
+            "w": 12,
+            "x": 0,
+            "y": 28
          },
          "id": 9,
          "interval": "1m",
@@ -522,11 +499,62 @@
                   "type": "prometheus",
                   "uid": "${datasource}"
                },
-               "expr": "go_goroutines{cluster=\"$cluster\", job=\"kube-scheduler\",instance=~\"$instance\"}",
-               "legendFormat": "{{instance}}"
+               "expr": "node:windows_node_net_utilisation:sum_irate{cluster=\"$cluster\", instance=\"$instance\"}",
+               "legendFormat": "Utilisation"
             }
          ],
-         "title": "Goroutines",
+         "title": "Net Utilisation (Transmitted)",
+         "type": "timeseries"
+      },
+      {
+         "datasource": {
+            "type": "datasource",
+            "uid": "-- Mixed --"
+         },
+         "fieldConfig": {
+            "defaults": {
+               "custom": {
+                  "fillOpacity": 10,
+                  "showPoints": "never",
+                  "spanNulls": true
+               },
+               "unit": "Bps"
+            }
+         },
+         "gridPos": {
+            "h": 7,
+            "w": 12,
+            "x": 12,
+            "y": 28
+         },
+         "id": 10,
+         "interval": "1m",
+         "options": {
+            "legend": {
+               "asTable": true,
+               "calcs": [
+                  "lastNotNull"
+               ],
+               "displayMode": "table",
+               "placement": "right",
+               "showLegend": true
+            },
+            "tooltip": {
+               "mode": "single"
+            }
+         },
+         "pluginVersion": "v11.4.0",
+         "targets": [
+            {
+               "datasource": {
+                  "type": "prometheus",
+                  "uid": "${datasource}"
+               },
+               "expr": "node:windows_node_net_saturation:sum_irate{cluster=\"$cluster\", instance=\"$instance\"}",
+               "legendFormat": "Saturation"
+            }
+         ],
+         "title": "Net Saturation (Dropped)",
          "type": "timeseries"
       }
    ],
@@ -558,22 +586,20 @@
             "hide": 2,
             "label": "cluster",
             "name": "cluster",
-            "query": "label_values(up{job=\"kube-scheduler\"}, cluster)",
+            "query": "label_values(up{job=\"kubernetes-windows-exporter\"}, cluster)",
             "refresh": 2,
             "sort": 1,
             "type": "query"
          },
          {
-            "allValue": ".+",
             "datasource": {
                "type": "prometheus",
                "uid": "${datasource}"
             },
             "hide": 0,
-            "includeAll": true,
             "label": "instance",
             "name": "instance",
-            "query": "label_values(up{job=\"kube-scheduler\", cluster=\"$cluster\"}, instance)",
+            "query": "label_values(windows_system_system_up_time{cluster=\"$cluster\"}, instance)",
             "refresh": 2,
             "type": "query"
          }
@@ -583,7 +609,7 @@
       "from": "now-1h",
       "to": "now"
    },
-   "timezone": "UTC",
-   "title": "Kubernetes / Scheduler",
-   "uid": "2e6b6a3b4bddf1427b3a55aa1311c656"
+   "timezone": "utc",
+   "title": "Kubernetes / USE Method / Node(Windows)",
+   "uid": "96e7484b0bb53b74fbc2bcb7723cd40b"
 }

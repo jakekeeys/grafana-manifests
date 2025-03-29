@@ -60,7 +60,7 @@
                "title": "Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -125,10 +125,8 @@
                   {
                      "expr": "sum by (job, result) (rate(thanos_replicate_replication_runs_total{result=\"error\", job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{result}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -137,7 +135,7 @@
                "title": "Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -255,7 +253,7 @@
                "title": "Duration",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -331,42 +329,32 @@
                   {
                      "expr": "sum by (job) (rate(blocks_meta_synced{state=\"loaded\", job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "meta loads",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "sum by (job) (rate(blocks_meta_synced{state=\"failed\", job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "partial meta reads",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "sum by (job) (rate(thanos_replicate_blocks_already_replicated_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "already replicated blocks",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "sum by (job) (rate(thanos_replicate_blocks_replicated_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "replicated blocks",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "sum by (job) (rate(thanos_replicate_objects_replicated_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "replicated objects",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -375,7 +363,7 @@
                "title": "Metrics",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -427,7 +415,7 @@
                "value": "default"
             },
             "hide": 0,
-            "label": null,
+            "label": "Data source",
             "name": "datasource",
             "options": [ ],
             "query": "prometheus",
@@ -463,7 +451,7 @@
             "multi": false,
             "name": "job",
             "options": [ ],
-            "query": "label_values(up{kubernetes_name=~\".*thanos-bucket-replicate.*\"}, job)",
+            "query": "label_values(up{app_kubernetes_io_name=\"thanos-bucket-replicate\"}, job)",
             "refresh": 1,
             "regex": "",
             "sort": 2,
@@ -505,7 +493,7 @@
       ]
    },
    "timezone": "UTC",
-   "title": "Thanos / BucketReplicate",
+   "title": "BucketReplicate",
    "uid": "65ffb86cd2688b9e4db4d1ea231a5a9a",
    "version": 0
 }

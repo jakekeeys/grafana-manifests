@@ -80,7 +80,7 @@
                "title": "Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -157,7 +157,7 @@
                "title": "Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -275,7 +275,7 @@
                "title": "Duration",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -384,7 +384,7 @@
                "title": "Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -461,7 +461,7 @@
                "title": "Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -579,7 +579,7 @@
                "title": "Duration",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -740,7 +740,7 @@
                "title": "Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -817,7 +817,7 @@
                "title": "Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -935,7 +935,7 @@
                "title": "Duration",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1096,7 +1096,7 @@
                "title": "Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1173,7 +1173,7 @@
                "title": "Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1291,7 +1291,7 @@
                "title": "Duration",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1368,10 +1368,8 @@
                   {
                      "expr": "sum by (job) (rate(thanos_query_store_apis_dns_lookups_total{job=~\"$job\"}[$interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "lookups {{job}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1380,7 +1378,7 @@
                "title": "Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1458,7 +1456,7 @@
                "title": "Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1535,10 +1533,8 @@
                   {
                      "expr": "max_over_time(thanos_query_concurrent_gate_queries_max{job=~\"$job\"}[$__rate_interval]) - avg_over_time(thanos_query_concurrent_gate_queries_in_flight{job=~\"$job\"}[$__rate_interval])",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{job}} - {{pod}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1547,7 +1543,7 @@
                "title": "Concurrent Capacity",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1623,50 +1619,38 @@
                   {
                      "expr": "go_memstats_alloc_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc all {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "go_memstats_heap_alloc_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc heap {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "rate(go_memstats_alloc_bytes_total{job=~\"$job\"}[30s])",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc rate all {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "rate(go_memstats_heap_alloc_bytes{job=~\"$job\"}[30s])",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc rate heap {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "go_memstats_stack_inuse_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "inuse heap {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "go_memstats_heap_inuse_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "inuse stack {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1675,7 +1659,7 @@
                "title": "Memory Used",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1739,10 +1723,8 @@
                   {
                      "expr": "go_goroutines{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1751,7 +1733,7 @@
                "title": "Goroutines",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1815,10 +1797,8 @@
                   {
                      "expr": "go_gc_duration_seconds{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{quantile}} {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1827,7 +1807,7 @@
                "title": "GC Time Quantiles",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1879,7 +1859,7 @@
                "value": "default"
             },
             "hide": 0,
-            "label": null,
+            "label": "Data source",
             "name": "datasource",
             "options": [ ],
             "query": "prometheus",
@@ -1915,7 +1895,7 @@
             "multi": false,
             "name": "job",
             "options": [ ],
-            "query": "label_values(up{kubernetes_name=~\".*thanos-query.*\"}, job)",
+            "query": "label_values(up{app_kubernetes_io_name=\"thanos-compact\"}, job)",
             "refresh": 1,
             "regex": "",
             "sort": 2,
@@ -1957,7 +1937,7 @@
       ]
    },
    "timezone": "UTC",
-   "title": "Thanos / Query",
+   "title": "Query",
    "uid": "af36c91291a603f1d9fbdabdd127ac4a",
    "version": 0
 }

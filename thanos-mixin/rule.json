@@ -47,10 +47,8 @@
                   {
                      "expr": "sum by (job, rule_group, strategy) (rate(prometheus_rule_evaluations_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{ rule_group }} {{ strategy }}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -59,7 +57,7 @@
                "title": "Rule Group Evaluations",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -123,10 +121,8 @@
                   {
                      "expr": "sum by (job, rule_group, strategy) (rate(prometheus_rule_evaluation_failures_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{ rule_group }} {{ strategy }}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -135,7 +131,7 @@
                "title": "Rule Group Evaluations Failed",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -199,10 +195,8 @@
                   {
                      "expr": "sum by (job, rule_group, strategy) (increase(prometheus_rule_group_iterations_missed_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{ rule_group }} {{ strategy }}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -211,7 +205,7 @@
                "title": "Rule Group Evaluations Missed",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -275,10 +269,8 @@
                   {
                      "expr": "(\n  sum by(job, rule_group) (prometheus_rule_group_last_duration_seconds{job=~\"$job\"})\n  >\n  sum by(job, rule_group) (prometheus_rule_group_interval_seconds{job=~\"$job\"})\n)\n",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{ rule_group }}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -287,7 +279,7 @@
                "title": "Rule Group Evaluations Too Slow",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -364,10 +356,8 @@
                   {
                      "expr": "sum by (job, alertmanager) (rate(thanos_alert_sender_alerts_dropped_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{alertmanager}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -376,7 +366,7 @@
                "title": "Dropped Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -441,10 +431,8 @@
                   {
                      "expr": "sum by (job, alertmanager) (rate(thanos_alert_sender_alerts_sent_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{alertmanager}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -453,7 +441,7 @@
                "title": "Sent Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -531,7 +519,7 @@
                "title": "Sent Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -649,7 +637,7 @@
                "title": "Sent Duration",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -726,10 +714,8 @@
                   {
                      "expr": "sum by (job) (rate(thanos_alert_queue_alerts_dropped_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{job}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -738,7 +724,7 @@
                "title": "Push Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -816,7 +802,7 @@
                "title": "Drop Ratio",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -977,7 +963,7 @@
                "title": "Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1054,7 +1040,7 @@
                "title": "Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1172,7 +1158,7 @@
                "title": "Duration",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1333,7 +1319,7 @@
                "title": "Rate",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1410,7 +1396,7 @@
                "title": "Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1528,7 +1514,7 @@
                "title": "Duration",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1604,50 +1590,38 @@
                   {
                      "expr": "go_memstats_alloc_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc all {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "go_memstats_heap_alloc_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc heap {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "rate(go_memstats_alloc_bytes_total{job=~\"$job\"}[30s])",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc rate all {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "rate(go_memstats_heap_alloc_bytes{job=~\"$job\"}[30s])",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc rate heap {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "go_memstats_stack_inuse_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "inuse heap {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "go_memstats_heap_inuse_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "inuse stack {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1656,7 +1630,7 @@
                "title": "Memory Used",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1720,10 +1694,8 @@
                   {
                      "expr": "go_goroutines{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1732,7 +1704,7 @@
                "title": "Goroutines",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1796,10 +1768,8 @@
                   {
                      "expr": "go_gc_duration_seconds{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{quantile}} {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -1808,7 +1778,7 @@
                "title": "GC Time Quantiles",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1860,7 +1830,7 @@
                "value": "default"
             },
             "hide": 0,
-            "label": null,
+            "label": "Data source",
             "name": "datasource",
             "options": [ ],
             "query": "prometheus",
@@ -1896,7 +1866,7 @@
             "multi": false,
             "name": "job",
             "options": [ ],
-            "query": "label_values(up{kubernetes_name=~\".*thanos-rule.*\"}, job)",
+            "query": "label_values(up{app_kubernetes_io_name=\"thanos-rule\"}, job)",
             "refresh": 1,
             "regex": "",
             "sort": 2,
@@ -1938,7 +1908,7 @@
       ]
    },
    "timezone": "UTC",
-   "title": "Thanos / Rule",
+   "title": "Rule",
    "uid": "35da848f5f92b2dc612e0c3a0577b8a1",
    "version": 0
 }

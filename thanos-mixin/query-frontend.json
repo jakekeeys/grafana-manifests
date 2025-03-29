@@ -80,7 +80,7 @@
                "title": "Rate of requests",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -177,7 +177,7 @@
                "title": "Rate of queries",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -254,7 +254,7 @@
                "title": "Errors",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -372,7 +372,7 @@
                "title": "Duration",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -449,10 +449,8 @@
                   {
                      "expr": "sum by (job, tripperware) (rate(cortex_cache_request_duration_seconds_count{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{job}} {{tripperware}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -461,7 +459,7 @@
                "title": "Requests",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -526,18 +524,14 @@
                   {
                      "expr": "sum by (job, tripperware) (rate(querier_cache_gets_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "Cache gets - {{job}} {{tripperware}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "sum by (job, tripperware) (rate(querier_cache_misses_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "Cache misses - {{job}} {{tripperware}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -546,7 +540,7 @@
                "title": "Querier cache gets vs misses",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -611,10 +605,8 @@
                   {
                      "expr": "sum by (job, tripperware) (rate(cortex_cache_fetched_keys_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{job}} {{tripperware}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -623,7 +615,7 @@
                "title": "Cortex fetched keys",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -688,10 +680,8 @@
                   {
                      "expr": "sum by (job, tripperware) (rate(cortex_cache_hits_total{job=~\"$job\"}[$__rate_interval]))",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{job}} {{tripperware}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -700,7 +690,7 @@
                "title": "Cortex cache hits",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -776,50 +766,38 @@
                   {
                      "expr": "go_memstats_alloc_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc all {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "go_memstats_heap_alloc_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc heap {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "rate(go_memstats_alloc_bytes_total{job=~\"$job\"}[30s])",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc rate all {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "rate(go_memstats_heap_alloc_bytes{job=~\"$job\"}[30s])",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "alloc rate heap {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "go_memstats_stack_inuse_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "inuse heap {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   },
                   {
                      "expr": "go_memstats_heap_inuse_bytes{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "inuse stack {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -828,7 +806,7 @@
                "title": "Memory Used",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -892,10 +870,8 @@
                   {
                      "expr": "go_goroutines{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -904,7 +880,7 @@
                "title": "Goroutines",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -968,10 +944,8 @@
                   {
                      "expr": "go_gc_duration_seconds{job=~\"$job\"}",
                      "format": "time_series",
-                     "intervalFactor": 2,
                      "legendFormat": "{{quantile}} {{instance}}",
-                     "legendLink": null,
-                     "step": 10
+                     "legendLink": null
                   }
                ],
                "thresholds": [ ],
@@ -980,7 +954,7 @@
                "title": "GC Time Quantiles",
                "tooltip": {
                   "shared": false,
-                  "sort": 0,
+                  "sort": 2,
                   "value_type": "individual"
                },
                "type": "graph",
@@ -1032,7 +1006,7 @@
                "value": "default"
             },
             "hide": 0,
-            "label": null,
+            "label": "Data source",
             "name": "datasource",
             "options": [ ],
             "query": "prometheus",
@@ -1068,7 +1042,7 @@
             "multi": false,
             "name": "job",
             "options": [ ],
-            "query": "label_values(up{kubernetes_name=~\".*thanos-query-frontend.*\"}, job)",
+            "query": "label_values(up{app_kubernetes_io_name=\"thanos-query-frontend\"}, job)",
             "refresh": 1,
             "regex": "",
             "sort": 2,
@@ -1110,7 +1084,7 @@
       ]
    },
    "timezone": "UTC",
-   "title": "Thanos / Query Frontend",
+   "title": "Query Frontend",
    "uid": "7c68ed2ef2355474f058dd27f0471f7a",
    "version": 0
 }
